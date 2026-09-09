@@ -1,0 +1,81 @@
+/* =====================================================
+   Schedule Consultation page styles
+   (moved from inline <style> tags in components)
+   ===================================================== */
+
+/* Hero.jsx */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes softPulse {
+  0%, 100% {
+    text-shadow: 0 0 0 rgba(0, 194, 255, 0);
+  }
+  50% {
+    text-shadow: 0 0 18px rgba(0, 194, 255, 0.45);
+  }
+}
+.anim-fade-up {
+  opacity: 0;
+  animation: fadeSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.anim-glow {
+  animation: softPulse 3.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Form.jsx */
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes checkPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes checkDraw {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.anim-card {
+  opacity: 0;
+  animation: cardIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.anim-check-circle {
+  animation: checkPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.anim-check-path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: checkDraw 0.4s ease-out 0.25s forwards;
+}
+.anim-date-pop {
+  animation: checkPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}

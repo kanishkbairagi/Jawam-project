@@ -1,0 +1,73 @@
+/* =====================================================
+   AI Solutions page styles
+   (moved from inline <style> tags in components)
+   ===================================================== */
+#solum::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 420px at 12% 15%, rgba(56, 189, 248, 0.18), transparent 70%),
+    radial-gradient(circle 480px at 88% 30%, rgba(37, 99, 235, 0.15), transparent 70%),
+    radial-gradient(circle 420px at 20% 85%, rgba(56, 189, 248, 0.14), transparent 70%),
+    radial-gradient(circle 460px at 90% 90%, rgba(37, 99, 235, 0.12), transparent 70%);
+}
+/* WhyChoose.jsx — feature cards scroll reveal */
+#ai-why-choose-section .feature-card-outer {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+#ai-why-choose-section .feature-card-outer.fc-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+#ai-why-choose-section .feature-card-outer.fc-in:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(4, 163, 218, 0.18);
+}
+#ai-why-choose-section .feature-card-outer:nth-child(1) { transition-delay: 0.05s; }
+#ai-why-choose-section .feature-card-outer:nth-child(2) { transition-delay: 0.12s; }
+#ai-why-choose-section .feature-card-outer:nth-child(3) { transition-delay: 0.19s; }
+#ai-why-choose-section .feature-card-outer:nth-child(4) { transition-delay: 0.26s; }
+#ai-why-choose-section .feature-card-outer:nth-child(5) { transition-delay: 0.33s; }
+#ai-why-choose-section .feature-card-outer:nth-child(6) { transition-delay: 0.40s; }
+
+/* Industries.jsx — icon grid pop-in */
+@keyframes icoPopIn {
+  0% { opacity: 0; transform: translateY(16px) scale(0.7); }
+  60% { opacity: 1; transform: translateY(-3px) scale(1.08); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.ico-item {
+  opacity: 0;
+  animation: icoPopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transition: transform 0.3s ease;
+}
+.ico-item:hover {
+  transform: translateY(-4px);
+}
+.ico-item:hover .ico-circle {
+  transform: scale(1.15);
+}
+.ico-circle {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 9999px;
+}
+.ico-svg {
+  color: white;
+  transition: color 0.3s ease;
+}
+.ico-item:hover .ico-svg {
+  color: var(--Color-primary-default, #04A3DA);
+}
+.ico-item:nth-child(1) { animation-delay: 0.05s; }
+.ico-item:nth-child(2) { animation-delay: 0.12s; }
+.ico-item:nth-child(3) { animation-delay: 0.19s; }
+.ico-item:nth-child(4) { animation-delay: 0.26s; }
+.ico-item:nth-child(5) { animation-delay: 0.33s; }
+.ico-item:nth-child(6) { animation-delay: 0.40s; }
+.ico-item:nth-child(7) { animation-delay: 0.47s; }
+.ico-item:nth-child(8) { animation-delay: 0.54s; }

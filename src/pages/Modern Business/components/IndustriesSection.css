@@ -1,0 +1,452 @@
+.section.industries {
+  padding: 80px 0;
+ 
+  
+  color: #ffffff;
+  position: relative;
+}
+
+.section__inner {
+  max-width: 1200px;
+  
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section__eyebrow {
+  color: #38bdf8;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.section__heading {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 32px;
+  color: #ffffff;
+  line-height: 1.25;
+  padding: 0 8px;
+}
+
+@media (min-width: 480px) {
+  .section__heading {
+    font-size: 25px;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .section__heading {
+    font-size: 36px;
+    margin-bottom: 48px;
+     text-align: left;
+    padding: 0;
+  }
+}
+
+
+
+.industries__layout {
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  align-items: center;
+  gap: 80px;
+}
+
+/* ---- circular selector ---- */
+.industries__wheel {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  height:100%;
+  overflow:visible;
+  margin: 0 auto;
+}
+
+/* soft radial glow behind the wheel (no hard circle line) */
+.industries__wheel::before {
+  content: "";
+  position: absolute;
+  inset: 4%;
+    overflow:visible;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(59, 130, 246, 0.18) 0%,
+    rgba(59, 130, 246, 0) 68%
+  );
+  z-index: 0;
+}
+
+/* the ring of icons that rotates clockwise */
+.industries__ring {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50%;
+  transition: transform 0.9s cubic-bezier(0.45, 0, 0.2, 1);
+  z-index: 1;
+    overflow:visible;
+}
+
+.industries__disc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64%;
+  height: 64%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: #fff;
+    overflow:visible;
+  border: 1px solid rgba(120, 170, 235, 0.28);
+  box-shadow: inset 0 0 50px rgba(4, 163, 218, 0.18),
+    0 24px 60px rgba(3, 12, 26, 0.7), 0 0 60px rgba(59, 130, 246, 0.2);
+}
+
+.industries__disc-icon {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 18px;
+  color : #fff;
+  background:  #04a3da;
+    overflow:visible;
+  box-shadow: 0 12px 28px rgba(4, 163, 218, 0.5),
+    0 0 26px rgba(59, 130, 246, 0.45);
+}
+.industries__disc-icon svg {
+  width: 30px;
+  height: 30px;
+    overflow:visible;
+}
+
+.industries__disc-label {
+  position: relative;
+  z-index: 3;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+    overflow:visible;
+}
+
+/* overlay inside the disc so photo doesn't make text unreadable */
+.industries__disc-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(9, 25, 50, 0.55);
+  z-index: 2;
+  pointer-events: none;
+    overflow:visible;
+}
+
+.industries__node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;   /* was 14px */
+  cursor: pointer;
+  background: #cfe0f3;
+  color: #04a3da;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease,
+    box-shadow 0.3s ease;
+  overflow: visible;
+}
+.industries__node svg {
+  width: 22px;
+  height: 22px;
+    overflow:visible;
+}
+
+/* inner span counter-rotates (in sync with the ring) so the icon stays upright */
+.industries__node-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.9s cubic-bezier(0.45, 0, 0.2, 1);
+    overflow:visible;
+      border-radius: 50%;
+}
+
+.industries__node:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  color: #fff;
+    overflow:visible;
+}
+
+.industries__node--active {
+  color: #fff;
+  background: linear-gradient(150deg, #3b82f6, #04a3da);
+  border-color: transparent;
+  border-radius: 50%;   /* ADD THIS — overrides the 50% from the base rule, matches .industries__disc-icon */
+  transform: translate(-50%, -50%) scale(1.18);
+  box-shadow: 0 12px 28px rgba(4, 163, 218, 0.5),
+    0 0 30px rgba(59, 130, 246, 0.7);
+  overflow: visible;
+}
+
+/* ---- detail card ---- */
+.industries__detail {
+  position: relative;
+   overflow:visible;
+  background: linear-gradient(160deg, #19304e 0%, #0f1f34 100%);
+  border: 1px solid rgba(120, 170, 235, 0.18);
+  border-radius: 20px;
+  padding: 38px;
+  box-shadow: 0 24px 60px rgba(3, 12, 26, 0.5);
+}
+
+/* soft glow in the top-right corner of the card */
+.industries__detail::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 60%;
+  height: 80%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.18),
+    rgba(59, 130, 246, 0) 70%
+  );
+  pointer-events: none;
+    overflow:visible;
+}
+
+.industries__fade {
+  position: relative;
+  z-index: 1;
+    overflow:visible;
+}
+
+.industries__count {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #5b9cf3;
+  margin: 0 0 10px;
+    overflow:visible;
+}
+
+.industries__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 14px;
+}
+
+.industries__desc {
+  font-size: 15.5px;
+  line-height: 26px;
+  color: #9fb2c8;
+  margin: 0 0 26px;
+    overflow:visible;
+}
+
+.industries__rows {
+  display: grid;
+  gap: 14px;
+    overflow:visible;
+}
+
+.industries__row {
+  font-size: 14.5px;
+  color: #d7e2f0;
+  padding: 15px 18px;
+  border-radius: 12px;
+    overflow:visible;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.industries__row:hover {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(120, 170, 235, 0.4);
+  transform: translateX(4px);
+    overflow:visible;
+}
+
+/* ---- transitions when the active industry changes ---- */
+.industries__fade {
+  animation: ind-fade 0.55s ease;
+    overflow:visible;
+}
+@keyframes ind-fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.industries__disc-icon,
+.industries__disc-label {
+  animation: ind-pop 0.45s ease;
+    
+}
+@keyframes ind-pop {
+  from { opacity: 0; transform: scale(0.88); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ---- TABLET (640px–1023px): keep the desktop two-column layout, scaled down ---- */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .industries__layout {
+    grid-template-columns: 1fr 0.95fr;
+    gap: 40px;
+  }
+  .industries__wheel {
+    max-width: 300px;
+  }
+  .industries__disc-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+  }
+  .industries__disc-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  .industries__disc-label {
+    font-size: 16px;
+  }
+  .industries__node {
+    width: 44px;
+    height: 44px;
+  }
+  .industries__node svg {
+    width: 18px;
+    height: 18px;
+  }
+  .industries__node--active {
+    border-radius: 15px;
+  }
+  .industries__detail {
+    padding: 28px;
+    border-radius: 18px;
+  }
+  .industries__title {
+    font-size: 23px;
+    margin-bottom: 11px;
+  }
+  .industries__desc {
+    font-size: 13.5px;
+    line-height: 21px;
+    margin-bottom: 20px;
+  }
+  .industries__row {
+    font-size: 13px;
+    padding: 12px 15px;
+  }
+  .industries__rows {
+    gap: 11px;
+  }
+}
+
+/* ---- MOBILE ONLY (<640px): stack into a single column ---- */
+@media (max-width: 639px) {
+  .industries__layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .industries__wheel {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .industries__node {
+    width: 40px;
+    height: 40px;
+  border-radius: 50%;
+    
+  }
+  .industries__node svg {
+    width: 18px;
+    height: 18px;
+  }
+  .industries__detail {
+    padding: 26px 22px;
+    border-radius: 16px;
+  }
+  .industries__title {
+    font-size: 22px;
+  }
+  .industries__desc {
+    font-size: 14px;
+    line-height: 23px;
+    margin-bottom: 20px;
+  }
+  .industries__row {
+    font-size: 13.5px;
+    padding: 13px 15px;
+  }
+  .industries__disc-label {
+    font-size: 16px;
+  }
+  .industries__disc-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+  }
+}
+
+
+
+
+
+/* Background video behind the entire Industries section */
+.industries__section {
+  position: relative;
+  overflow-x: clip;   /* prevent horizontal bleed without clipping vertical icons */
+  overflow-y: visible; /* orbiting nodes below/above the section stay fully visible */
+  border-radius: 24px;
+}
+
+.industries__section-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.industries__section-overlay {
+  position: absolute;
+  inset: 0;
+ ; /* dark overlay so all text/icons stay readable over the image */
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Make sure everything else renders above the video + overlay */
+.section__inner {
+  position: relative;
+  z-index: 2;
+}

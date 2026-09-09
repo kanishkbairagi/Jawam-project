@@ -1,0 +1,65 @@
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.faq-item.active {
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+.faq-item.active .faq-icon-vline {
+  display: none;
+}
+.faq-item.icon-active {
+  background-image: linear-gradient(357.37deg, rgba(177, 226, 244, 0.2) 1.93%, rgba(230, 246, 251, 0.2) 97.52%);
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUpScale {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes textGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(4, 163, 218, 0);
+  }
+
+  50% {
+    text-shadow:
+      0 0 10px rgba(4, 163, 218, 0.45),
+      0 0 25px rgba(4, 163, 218, 0.2);
+  }
+}

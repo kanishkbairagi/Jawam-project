@@ -1,0 +1,159 @@
+/* Custom animations and styling for Modern Business page */
+
+#modern::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 420px at 12% 15%, rgba(56, 189, 248, 0.18), transparent 70%),
+    radial-gradient(circle 480px at 88% 30%, rgba(37, 99, 235, 0.15), transparent 70%),
+    radial-gradient(circle 420px at 20% 85%, rgba(56, 189, 248, 0.14), transparent 70%),
+    radial-gradient(circle 460px at 90% 90%, rgba(37, 99, 235, 0.12), transparent 70%);
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reverse-spin-slow {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 40s linear infinite;
+}
+
+.animate-reverse-spin-slow {
+  animation: reverse-spin-slow 50s linear infinite;
+}
+
+.animate-float {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Glassmorphism utility */
+.glass-card {
+  background: rgba(17, 26, 46, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(23, 37, 66, 0.85);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.25);
+  transform: translateY(-3px);
+}
+
+/* Radial Glows */
+.bg-radial-hero {
+  background: radial-gradient(circle at 50% 30%, rgba(14, 165, 233, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+}
+
+.bg-radial-results {
+  background: radial-gradient(circle at 70% 50%, rgba(14, 165, 233, 0.18) 0%, rgba(11, 23, 43, 0.95) 80%);
+}
+
+/* =====================================================
+   Hero.jsx - orbital icon animations
+   ===================================================== */
+@keyframes spin-cw { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes spin-ccw { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+/* Outer ring: rotates clockwise */
+.orbit-outer { animation: spin-cw 20s linear infinite; }
+/* Counter-rotation applied to each outer icon so it stays upright */
+.orbit-outer-counter { animation: spin-ccw 40s linear infinite; }
+
+/* Inner ring: rotates anticlockwise */
+.orbit-inner { animation: spin-ccw 15s linear infinite; }
+/* Counter-rotation applied to each inner icon so it stays upright */
+.orbit-inner-counter { animation: spin-cw 26s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-outer, .orbit-outer-counter, .orbit-inner, .orbit-inner-counter {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* =====================================================
+   Hero.jsx - marquee / partner logos banner
+   ===================================================== */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee-scroll 25s linear infinite;
+  will-change: transform;
+}
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* =====================================================
+   OurTechnology.jsx - card entrance animation
+   ===================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+

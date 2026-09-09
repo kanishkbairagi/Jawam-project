@@ -1,0 +1,134 @@
+/* =====================================================
+   JmartHero.jsx - hero entrance animations
+   ===================================================== */
+   #jmart::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 420px at 12% 15%, rgba(56, 189, 248, 0.18), transparent 70%),
+    radial-gradient(circle 480px at 88% 30%, rgba(37, 99, 235, 0.15), transparent 70%),
+    radial-gradient(circle 420px at 20% 85%, rgba(56, 189, 248, 0.14), transparent 70%),
+    radial-gradient(circle 460px at 90% 90%, rgba(37, 99, 235, 0.12), transparent 70%);
+}
+@keyframes jhFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes jhBadgeFade {
+  from { opacity: 0; transform: translateY(-10px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes jhSlideRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes jhCheckPop {
+  0% { opacity: 0; transform: translateX(-15px) scale(0.6); }
+  70% { opacity: 1; transform: translateX(2px) scale(1.1); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes jhFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.jh-badge {
+  opacity: 0;
+  animation: jhBadgeFade 0.6s ease-out forwards;
+}
+.jh-animate {
+  opacity: 0;
+  animation: jhFadeUp 0.7s ease-out forwards;
+}
+.jh-delay-1 { animation-delay: 0.1s; }
+.jh-delay-2 { animation-delay: 0.25s; }
+.jh-delay-3 { animation-delay: 0.4s; }
+.jh-btn-primary, .jh-btn-secondary {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.jh-btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+}
+.jh-btn-secondary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+}
+.jh-feature-item {
+  opacity: 0;
+  animation: jhCheckPop 0.5s ease-out forwards;
+}
+.jh-feature-item:nth-child(1) { animation-delay: 0.55s; }
+.jh-feature-item:nth-child(2) { animation-delay: 0.65s; }
+.jh-feature-item:nth-child(3) { animation-delay: 0.75s; }
+.jh-feature-badge {
+  transition: transform 0.3s ease;
+}
+.jh-feature-item:hover .jh-feature-badge {
+  transform: scale(1.2) rotate(8deg);
+}
+.jh-img-wrap {
+  opacity: 0;
+  animation: jhSlideRight 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+.jh-img-float {
+  animation: jhFloat 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* =====================================================
+   Dashboard.jsx - dashboard section animations
+   ===================================================== */
+@keyframes dbFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes dbSlideLeft {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes dbCheckPop {
+  0% { opacity: 0; transform: translateX(-15px) scale(0.6); }
+  70% { opacity: 1; transform: translateX(2px) scale(1.1); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes dbFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.db-text {
+  opacity: 0;
+  animation: dbFadeUp 0.6s ease-out forwards;
+}
+.db-label { animation-delay: 0.1s; }
+.db-heading { animation-delay: 0.2s; }
+.db-desc { animation-delay: 0.3s; }
+
+.db-check-item {
+  opacity: 0;
+  animation: dbCheckPop 0.5s ease-out forwards;
+}
+.db-check-item:nth-child(1) { animation-delay: 0.4s; }
+.db-check-item:nth-child(2) { animation-delay: 0.5s; }
+.db-check-item:nth-child(3) { animation-delay: 0.6s; }
+.db-check-item:nth-child(4) { animation-delay: 0.7s; }
+
+.db-check-badge {
+  transition: transform 0.3s ease;
+}
+.db-check-item:hover .db-check-badge {
+  transform: scale(1.25) rotate(8deg);
+}
+
+.db-img-wrap {
+  opacity: 0;
+  animation: dbSlideLeft 0.8s ease-out forwards;
+  animation-delay: 0.15s;
+}
+.db-img-float {
+  animation: dbFloat 4s ease-in-out infinite;
+  animation-delay: 1s;
+}

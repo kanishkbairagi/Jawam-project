@@ -1,0 +1,67 @@
+/* =====================================================
+   Hero.jsx - entrance animations
+   ===================================================== */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-fade-1 { animation: hero-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 0ms; }
+.hero-fade-2 { animation: hero-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 120ms; }
+.hero-fade-3 { animation: hero-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 240ms; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade-1, .hero-fade-2, .hero-fade-3 { animation: none; opacity: 1; transform: none; }
+}
+
+/* =====================================================
+   Form.jsx - form animations
+   ===================================================== */
+@keyframes form-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes form-pop {
+  0% { opacity: 0; transform: scale(0.9); }
+  60% { opacity: 1; transform: scale(1.03); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes form-check {
+  from { stroke-dashoffset: 24; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes form-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+@keyframes form-error-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.field-rise {
+  opacity: 0;
+  animation: form-rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.field-shake {
+  animation: form-shake 0.4s ease-in-out;
+}
+.error-text {
+  animation: form-error-in 0.25s ease-out both;
+}
+.success-pop {
+  animation: form-pop 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.success-check {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: form-check 0.5s ease-out 0.15s forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .field-rise, .field-shake, .error-text, .success-pop, .success-check {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

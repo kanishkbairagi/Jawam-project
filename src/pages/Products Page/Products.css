@@ -1,0 +1,629 @@
+/* =========================================================
+   Products page styles
+   NOTE: header/nav and footer breakpoint rules below ARE
+   included here on purpose — products.html defines them
+   directly in its own <style> tag rather than delegating to
+   a shared Navbar/Footer stylesheet, so they must live here
+   for this page to match exactly.
+   ========================================================= */
+#products::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 420px at 12% 15%, rgba(56, 189, 248, 0.18), transparent 70%),
+    radial-gradient(circle 480px at 88% 30%, rgba(37, 99, 235, 0.15), transparent 70%),
+    radial-gradient(circle 420px at 20% 85%, rgba(56, 189, 248, 0.14), transparent 70%),
+    radial-gradient(circle 460px at 90% 90%, rgba(37, 99, 235, 0.12), transparent 70%);
+}
+/* ==== JAWAM LAUNCH HEADING ==== */
+#hero-section .jawam-launch-heading {
+  margin: 0;
+  margin-top: -15px;
+  font-weight: 800;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 6px;
+  background: linear-gradient(90deg, #FFFFFF 0%, #04A3DA 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  opacity: 0;
+  animation: jawamFadeUp 0.8s ease-out forwards,
+             jawamGlow 2.5s ease-in-out infinite;
+  animation-delay: 0.55s, 0.55s;
+}
+
+/* Mobile: below 768px */
+#hero-section .jawam-launch-heading {
+  font-size: 15px;
+  line-height: 28px;
+}
+
+/* Tablet: 768px to 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #hero-section .jawam-launch-heading {
+    font-size: 50px;
+    line-height: 76px;
+    margin-top: -10px;
+  }
+}
+
+/* Desktop: 1024px and up */
+@media (min-width: 1024px) {
+  #hero-section .jawam-launch-heading {
+    font-size: 85px;
+    line-height: 80px;
+    margin-top: 0;
+  }
+}
+
+@keyframes jawamFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes jawamGlow {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(4, 163, 218, 0.3)); }
+  50%      { filter: drop-shadow(0 0 18px rgba(4, 163, 218, 0.7)); }
+}
+
+/* ---------- Mobile (<= 767px) ---------- */
+@media (max-width: 767px) {
+  h1 {
+    font-size: 32px !important;
+    line-height: 40px !important;
+    margin-bottom: 16px !important;
+  }
+  h1 span {
+    font-size: 32px !important;
+    line-height: 40px !important;
+  }
+  .section-heading {
+    font-size: 28px !important;
+    line-height: 34px !important;
+  }
+  .section-subheading {
+    font-size: 14px !important;
+  }
+
+  /* Hero Section */
+  .hero-pill {
+    margin-top: -5px !important;
+    height: 24px !important;
+  }
+  .hero-pill svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .hero-pill span {
+    font-size: 10px !important;
+  }
+  #hero-section h1 {
+    font-size: 28px !important;
+    line-height: 36px !important;
+  }
+  #hero-section p {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+  .hero-product-img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  #hero-section .hero-btn-primary,
+  #hero-section .hero-btn-secondary {
+    font-size: 11px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+
+  /* CTA Features Section */
+  #cta-features-section {
+    /* NOTE: source HTML has an invalid `-25pxpx` value here, which the
+       browser drops entirely — so no margin-top override is applied live.
+       Only margin-bottom carries through. */
+    margin-bottom: 30px !important;
+  }
+  #cta-features-section .cta-feature-item {
+    padding-left: 0 !important;
+    width: 100% !important;
+  }
+  #cta-features-section h3 {
+    font-size: 16px !important;
+    line-height: 20px !important;
+  }
+  #cta-features-section p {
+    font-size: 13px !important;
+    line-height: 16px !important;
+  }
+  #cta-features-section svg {
+    font-size: 28px !important;
+  }
+
+  /* Mobile: stack icon above centered text, show horizontal dividers */
+  #cta-features-row {
+    align-items: stretch !important;
+    gap: 20px !important;
+  }
+  #cta-features-row .cta-feature-item {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 10px !important;
+    padding-left: 0 !important;
+  }
+  #cta-features-row .cta-feature-item .text-left {
+    text-align: center !important;
+  }
+  #cta-features-row .cta-feature-divider {
+    display: block !important;
+    width: 40% !important;
+    max-width: 140px;
+    height: 2px !important;
+    margin: 0 auto;
+  }
+
+  /* JAWAM Products Section */
+  #jawam-products-section h2 {
+    font-size: 24px !important;
+    line-height: 30px !important;
+  }
+  #jawam-products-section img[alt="JMart 24 logo"] {
+    width: 160px !important;
+    height: auto !important;
+    margin-top: 0 !important;
+  }
+  #jawam-products-section .w-full.md\:w-1\/2.px-6 {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+  #jawam-products-section h4 {
+    font-size: 17px !important;
+    line-height: 21px !important;
+  }
+  #jawam-products-section p {
+    font-size: 13px !important;
+    line-height: 18px !important;
+  }
+
+  /* Why Our Product Section */
+  #why-product-section {
+    margin-top: -50px !important;
+    margin-bottom: 20px !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+  #why-product-section h2 {
+    font-size: 20px !important;
+    line-height: 25px !important;
+  }
+  #why-product-section .grid {
+    margin-top: -35px !important;
+    gap: 14px !important;
+  }
+  #why-product-section .feature-card {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  #why-product-section .feature-card h3,
+  #why-product-section .feature-card p {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  #why-product-section h3 {
+    font-size: 15px !important;
+    line-height: 19px !important;
+    margin-bottom: 8px !important;
+  }
+  #why-product-section p {
+    font-size: 13px !important;
+    line-height: 15px !important;
+  }
+  #why-product-section .icon-wrap {
+    width: 36px !important;
+    height: 36px !important;
+    margin-bottom: 12px !important;
+  }
+  #why-product-section .icon-wrap svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  #why-product-section svg {
+    font-size: 18px !important;
+  }
+
+  /* Final CTA Section */
+  #final-cta-section {
+    padding: 24px 16px !important;
+  }
+  #final-cta-section h2 {
+    font-size: 26px !important;
+    line-height: 32px !important;
+  }
+  #final-cta-section p {
+    font-size: 13px !important;
+    line-height: 19px !important;
+  }
+
+  /* Footer */
+  footer {
+    padding: 32px 16px !important;
+  }
+  footer h4 {
+    font-size: 16px !important;
+    margin-bottom: 12px !important;
+  }
+  footer ul li a,
+  footer ul li span {
+    font-size: 13px !important;
+  }
+  .footer-brand-logo {
+    height: 32px !important;
+  }
+  .footer-brand-text {
+    font-size: 12px !important;
+  }
+  .footer-social-icons svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+
+/* ---------- Desktop 1024px - 1279px ---------- */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #hero-section,
+  #cta-features-section,
+  #jawam-products-section,
+  #why-product-section,
+  #final-cta-section {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  header nav ul {
+    gap: 1.25rem !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  header nav ul li a {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ---------- Tablet (768px - 1023px) ---------- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  header > div:first-child {
+    height: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  header nav ul {
+    gap: 0.75rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  header nav ul li a {
+    font-size: 0.8rem;
+  }
+
+  /* Hero Section */
+  #hero-section {
+    margin-bottom: 0px !important;
+  }
+  #hero-section h1 {
+    font-size: 40px !important;
+    line-height: 48px !important;
+    margin-bottom: 20px !important;
+  }
+  #hero-section p {
+    font-size: 16px !important;
+    line-height: 24px !important;
+    max-width: 650px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 24px !important;
+  }
+  .hero-product-img {
+    width: 100% !important;
+    max-width: 620px !important;
+    height: auto !important;
+  }
+
+  /* CTA Features Section */
+  #cta-features-section {
+    margin-top: 30px !important;
+  }
+  #cta-features-section h3 {
+    font-size: 18px !important;
+  }
+  #cta-features-section p {
+    font-size: 14px !important;
+  }
+  #cta-features-section svg {
+    font-size: 32px !important;
+  }
+
+  /* JAWAM Products Section */
+  #jawam-products-section h2 {
+    font-size: 30px !important;
+  }
+  #jawam-products-section img[alt="JMart 24 logo"] {
+    width: 200px !important;
+    height: auto !important;
+  }
+
+  /* Why Our Product Section */
+  #why-product-section {
+    margin-top: 30px !important;
+    margin-bottom: 40px !important;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+  #why-product-section h2 {
+    font-size: 34px !important;
+    line-height: 40px !important;
+  }
+  #why-product-section .grid {
+    margin-top: 0 !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  /* Tablet only: reduce heading text size in feature cards */
+  .feature-card-header h3 {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+
+  /* Final CTA Section */
+  #final-cta-section h2 {
+    font-size: 40px !important;
+    line-height: 48px !important;
+  }
+  #final-cta-section p {
+    font-size: 15px !important;
+    line-height: 22px !important;
+  }
+
+  /* Footer */
+  footer {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+  footer > div > div {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2.5rem 2rem !important;
+  }
+  footer > div > div > div.contents {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+  }
+  footer > div > div > div.contents > a {
+    transform: none !important;
+    margin-bottom: 0.5rem !important;
+  }
+  footer > div > div > div.contents > a img {
+    margin-left: 0 !important;
+    left: 0 !important;
+    position: static !important;
+  }
+  footer > div > div > div.contents > a span {
+    margin-left: 0.5rem !important;
+    margin-right: 0 !important;
+  }
+  footer > div > div > div.contents .order-2 {
+    margin-bottom: 1rem !important;
+  }
+  footer > div > div > div.contents .order-6 {
+    margin-top: 0 !important;
+  }
+  footer h4 {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  footer ul li a,
+  footer ul li span {
+    font-size: 0.78rem !important;
+  }
+}
+
+/* =========================================================
+   Hero section animations
+   ========================================================= */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroPillFade {
+  from { opacity: 0; transform: translateY(-10px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes imageFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: heroFadeUp 0.8s ease-out forwards;
+}
+
+.hero-pill {
+  opacity: 0;
+  animation: heroPillFade 0.6s ease-out forwards;
+}
+
+.hero-delay-1 { animation-delay: 0.1s; }
+.hero-delay-2 { animation-delay: 0.25s; }
+.hero-delay-3 { animation-delay: 0.4s; }
+.hero-delay-4 { animation-delay: 0.55s; }
+.hero-delay-5 { animation-delay: 0.7s; }
+
+.hero-product-img {
+  animation: imageFloat 4s ease-in-out infinite;
+}
+
+.hero-btn-primary {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(4, 163, 218, 0.4);
+}
+
+.hero-btn-secondary {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-btn-secondary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================================
+   CTA Features section animations
+   ========================================================= */
+@keyframes featureFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dividerGrow {
+  from { opacity: 0; transform: scaleY(0); }
+  to   { opacity: 1; transform: scaleY(1); }
+}
+
+.cta-feature-item {
+  opacity: 0;
+  animation: featureFadeUp 0.6s ease-out forwards;
+  animation-play-state: paused;
+}
+
+.cta-feature-item:nth-child(1) { animation-delay: 0.1s; }
+.cta-feature-item:nth-child(3) { animation-delay: 0.3s; }
+.cta-feature-item:nth-child(5) { animation-delay: 0.5s; }
+
+.cta-feature-divider {
+  opacity: 0;
+  transform-origin: center;
+  animation: dividerGrow 0.6s ease-out forwards;
+  animation-play-state: paused;
+}
+
+.cta-feature-divider:nth-child(2) { animation-delay: 0.25s; }
+.cta-feature-divider:nth-child(4) { animation-delay: 0.45s; }
+
+.cta-feature-item svg {
+  display: inline-block;
+  transition: transform 0.4s ease;
+}
+
+.cta-feature-item:hover svg {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+.cta-feature-item {
+  transition: transform 0.3s ease;
+}
+
+.cta-feature-item:hover {
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   Why Our Product section: rotating-border cards
+   ========================================================= */
+@keyframes borderSweep {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes iconFloatIdle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.feature-card-outer {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 1.5px;
+  opacity: 1;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.feature-card-outer::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 85%,
+    #7dd3fc 92%,
+    #04A3DA 95%,
+    #7dd3fc 98%,
+    transparent 100%
+  );
+  transform: translate(-50%, -50%);
+  animation: borderSweep 3.5s linear infinite;
+  z-index: 0;
+}
+
+.feature-card-outer:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -12px rgba(4, 163, 218, 0.3);
+}
+
+.feature-card {
+  position: relative;
+  z-index: 1;
+  border-radius: calc(1rem - 1.5px);
+  height: 100%;
+}
+
+.icon-wrap {
+  animation: iconFloatIdle 2.8s ease-in-out infinite;
+}
+
+/* Mobile + Tablet: icon and heading sit side by side.
+   Desktop (lg: 1024px+) reverts to the original stacked layout. */
+.feature-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.feature-card-header .icon-wrap {
+  margin-bottom: 0;
+}
+.feature-card-header h3 {
+  margin-bottom: 0;
+}
+
+@media (min-width: 1024px) {
+  .feature-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: 0;
+  }
+  .feature-card-header .icon-wrap {
+    margin-bottom: 1.5rem;
+  }
+  .feature-card-header h3 {
+    margin-bottom: 0.75rem;
+  }
+}

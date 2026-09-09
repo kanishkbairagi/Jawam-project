@@ -1,0 +1,297 @@
+/* =====================================================
+   Hero.jsx - services hero animations
+   ===================================================== */
+
+    #service::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 420px at 12% 15%, rgba(56, 189, 248, 0.18), transparent 70%),
+    radial-gradient(circle 480px at 88% 30%, rgba(37, 99, 235, 0.15), transparent 70%),
+    radial-gradient(circle 420px at 20% 85%, rgba(56, 189, 248, 0.14), transparent 70%),
+    radial-gradient(circle 460px at 90% 90%, rgba(37, 99, 235, 0.12), transparent 70%);
+}
+@keyframes heroBadgeFade {
+  from { opacity: 0; transform: translateY(-10px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-badge {
+  opacity: 0;
+  animation: heroBadgeFade 0.6s ease-out forwards;
+}
+.hero-animate {
+  opacity: 0;
+  animation: heroFadeUp 0.8s ease-out forwards;
+}
+.hero-delay-1 { animation-delay: 0.15s; }
+.hero-delay-2 { animation-delay: 0.35s; }
+.hero-delay-3 { animation-delay: 0.5s; }
+.hero-btn-primary, .hero-btn-secondary {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(14, 165, 233, 0.45);
+}
+.hero-btn-secondary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+.hero-btn-primary svg {
+  transition: transform 0.3s ease;
+}
+.hero-btn-primary:hover svg {
+  transform: translateX(3px);
+}
+
+/* =====================================================
+   Cards.jsx - service cards animations
+   ===================================================== */
+@keyframes cardsFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes cardsHeadingFade {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes cardsPanelReveal {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes cardsItemPop {
+  0% { opacity: 0; transform: translateY(14px) scale(0.9); }
+  70% { opacity: 1; transform: translateY(-2px) scale(1.03); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes cardsBlobFloatA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-20px, 20px) scale(1.1); }
+}
+@keyframes cardsBlobFloatB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -20px) scale(1.1); }
+}
+@keyframes cardsActivePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(56, 189, 248, 0); }
+}
+@keyframes cardsIconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.cards-heading {
+  opacity: 0;
+  animation: cardsHeadingFade 0.7s ease-out forwards;
+}
+.cards-panel {
+  opacity: 0;
+  animation: cardsPanelReveal 0.7s ease-out forwards;
+}
+.cards-panel-delay {
+  animation-delay: 0.15s;
+}
+.cards-blob-a {
+  animation: cardsBlobFloatA 8s ease-in-out infinite;
+}
+.cards-blob-b {
+  animation: cardsBlobFloatB 9s ease-in-out infinite;
+}
+.cards-grid-item {
+  opacity: 0;
+  animation: cardsItemPop 0.5s ease-out forwards;
+}
+.cards-icon-box {
+  animation: cardsIconFloat 3.5s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cards-grid-item:hover .cards-icon-box {
+  transform: scale(1.18);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.35);
+}
+.cards-grid-item:hover span {
+  color: #38bdf8;
+}
+.cards-carousel-item {
+  transition: transform 0.3s ease;
+}
+.cards-carousel-item:hover {
+  transform: translateY(-4px);
+}
+.cards-carousel-item:hover .cards-icon-box {
+  transform: scale(1.18);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.35);
+}
+.cards-carousel-item.is-active .cards-icon-box {
+  animation: cardsIconFloat 3.5s ease-in-out infinite, cardsActivePulse 2s ease-in-out infinite;
+}
+.cards-nav-btn {
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+.cards-nav-btn:hover {
+  transform: scale(1.15);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* =====================================================
+   Vision.jsx - feature card interactions
+   ===================================================== */
+.feature-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(4, 163, 218, 0.18);
+}
+.feature-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, #04A3DA, transparent);
+  transition: width 0.4s ease;
+}
+.feature-card:hover::after {
+  width: 100%;
+}
+.icon-wrap {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.feature-card:hover .icon-wrap {
+  transform: scale(1.15) translateY(-2px);
+}
+.feature-number {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.feature-card:hover .feature-number {
+  opacity: 0.5;
+  transform: scale(0.92);
+}
+.feature-title {
+  transition: color 0.3s ease;
+}
+.feature-card:hover .feature-title {
+  color: #38bdf8;
+}
+/* ---- Service card entrance (grid) ---- */
+@keyframes serviceCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.service-card-anim {
+  opacity: 0;
+  animation: serviceCardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ---- Grid card icon hover ---- */
+/* ---- Grid card icon hover ---- */
+.service-icon-box {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.group\/card:hover .service-icon-box {
+  transform: scale(1.15);
+  background-color: #38bdf8;
+  box-shadow: 0 8px 20px rgba(7, 158, 223, 0.45);
+}
+
+.group\/card:hover .service-icon-box svg {
+  color: #0f172a;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---- Carousel tab active pulse ---- */
+@keyframes tabActivePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(56, 189, 248, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+  }
+}
+
+.is-active .service-icon-box {
+  animation: tabActivePulse 1.6s ease-out;
+}
+
+/* ---- Nav arrow hover ---- */
+.nav-arrow-btn {
+  transition: transform 0.25s ease, color 0.25s ease, background-color 0.25s ease;
+}
+
+.nav-arrow-btn:hover {
+  transform: scale(1.15);
+  background-color: rgba(56, 189, 248, 0.12);
+}
+
+.nav-arrow-btn:active {
+  transform: scale(0.92);
+}
+
+/* ---- Underline sweep on active carousel label ---- */
+.service-label {
+  position: relative;
+}
+
+.service-label.is-active-label::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  height: 2px;
+  width: 0%;
+  background: #38bdf8;
+  transform: translateX(-50%);
+  animation: labelUnderlineGrow 0.35s ease forwards;
+}
+
+@keyframes labelUnderlineGrow {
+  to {
+    width: 70%;
+  }
+}
+
+
+
+
+

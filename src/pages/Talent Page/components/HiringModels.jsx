@@ -2,9 +2,9 @@ export default function HiringModels() {
   return (
     <section
       id="hiring-models"
-      className="bg-[#0a1628] py-10 md:py-[100px] lg:py-[120px] px-6 max-w-[1000px] mx-auto mt-[-45px] md:mt-[-110px] lg:mt-[-115px] mb-[-10px] md:mb-[-45px] lg:mb-[-50px] scroll-mt-[-25px] md:scroll-mt-[-70px] lg:scroll-mt-[-75px]"
+      className="bg-[#0a1628] py-10 md:py-[100px] lg:py-[120px] px-6 max-w-[1000px] mx-auto mt-[-45px] md:mt-[-110px] lg:mt-[-75px] mb-[-10px] md:mb-[-45px] lg:mb-[-20px] scroll-mt-[-25px] md:scroll-mt-[-70px] lg:scroll-mt-[-75px]"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-12 md:mb-16">
           <p className="mb-3 font-semibold text-[16px] leading-[18px] tracking-[0] text-[#04A3DA] text-left ">

@@ -4,7 +4,7 @@ export default function Features() {
   return (
     <div className="mb-[-50px] md:mb-0 lg:mb-0">
     <section
-      className="why-hire-section py-10 md:py-16 lg:py-24 px-4 max-w-[1000px] mx-auto mt-[-50px] md:mt-[-150px] lg:mt-0 mb-[-100px] md:mb-16 lg:mb-[-30px]"
+      className="why-hire-section py-10 md:py-16 lg:py-24 px-4 max-w-[1000px] mx-auto mt-[-50px] md:mt-[-150px] lg:mt-[60px] mb-[-100px] md:mb-16 lg:mb-[-30px]"
       id="why-product-section"
     >
       <div className="text-center mb-12 md:mb-4 lg:mb-8">

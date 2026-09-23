@@ -2,7 +2,7 @@
 import checkImg from '../../../assets/check.webp';
 export default function Healthcare() {
   return (
-    <div class="mt-[-180px] md:mt-0 lg:mt-0">
+    <div className="mt-[-180px] md:mt-0 lg:mt-0">
     <section className="px-4 md:px-8 mt-[-50px] md:mt-[50px] lg:mt-[-50px] mb-0 md:mb-0 lg:mb-[25px]">
       <style>{`
         @keyframes hcFadeUp {

@@ -1,6 +1,6 @@
 export default function RolesSection() {
   return (
-    <div class="mt-0 md:mt-20 lg:mt-[100px] mb-16 md:mb-0 lg:mb-0">
+    <div class="mt-0 md:mt-20 lg:mt-[110px] mb-16 md:mb-0 lg:mb-20">
     <section className="px-4 max-w-[950px] mx-auto mt-[100px] md:mt-10 mt-16 md:mb-0">
       <div className="text-center mb-8 md:mb-6">
         <p className="font-semibold md:text-[18px] text-[15px] leading-[18px] text-center text-[#04A3DA] mb-0 md:mb-2">ROLES</p>

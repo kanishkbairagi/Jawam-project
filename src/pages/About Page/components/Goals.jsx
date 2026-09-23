@@ -83,7 +83,7 @@ export default function Goals() {
   }
 
   return (
-    <section className="relative mb-6 md:mb-0 lg:mb-0 px-4  lg:max-w-[1050px] md:max-w-[700px] mx-auto mt-0 md:mt-0 lg:mt-[80px]">
+    <section className="relative mb-6 md:mb-0 lg:mb-4 px-4  lg:max-w-[1050px] md:max-w-[700px] mx-auto mt-0 md:mt-0 lg:mt-[110px]">
       <style>{`
         @keyframes goalProgressFill {
           from { width: 0%; }

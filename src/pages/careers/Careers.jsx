@@ -5,6 +5,7 @@ import WhyJoinUs from './component/WhyJoinUs';
 import BelongGallery from './component/BelongGallery';
 import OpenRoles from './component/OpenRoles';
 import HiringProcess from './component/HiringProcess';
+import WhyWork from './component/WhyWork';
 import CTA from './component/CTA';
 import './careers.css';
 
@@ -26,10 +27,11 @@ export default function Careers() {
     <>
       <main id="kaaam" className="min-h-screen mb-[-30px] md:mb-[-125px] lg:mb-[-115px] w-full overflow-x-hidden">
         <Hero />
-        <WhyJoinUs class="" />
+        <WhyJoinUs className="" />
         <BelongGallery />
         <OpenRoles />
         <HiringProcess />
+        <WhyWork />
         <CTA />
       </main>
     </>

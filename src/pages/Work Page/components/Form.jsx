@@ -70,6 +70,7 @@ function ComboBox({ value, onChange, options, getLabel, placeholder, wrapperClas
   const [isOpen, setIsOpen] = useState(false);
   const [pos, setPos] = useState({ top: 0, left: 0, width: 0 });
   const inputRef = useRef(null);
+  const listRef = useRef(null);
 
   const filtered =
     value.trim() === ""
@@ -86,17 +87,22 @@ function ComboBox({ value, onChange, options, getLabel, placeholder, wrapperClas
     setIsOpen(true);
   };
 
-  // Close (rather than reposition) on scroll/resize while open — a fixed
-  // element won't track scrolling content underneath it, so keeping it
-  // pinned to a stale position would be worse than just closing it.
+  // Close on scroll/resize while open — but only when the scroll happened
+  // OUTSIDE the dropdown list itself. Scrolling the list's own contents
+  // (to see more options) must not close it; only the page/form scrolling
+  // underneath should, since a fixed-position dropdown can't track that.
   useEffect(() => {
     if (!isOpen) return;
-    const close = () => setIsOpen(false);
-    window.addEventListener("scroll", close, true);
-    window.addEventListener("resize", close);
+    const handleScroll = (e) => {
+      if (listRef.current && listRef.current.contains(e.target)) return;
+      setIsOpen(false);
+    };
+    const handleResize = () => setIsOpen(false);
+    window.addEventListener("scroll", handleScroll, true);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("scroll", close, true);
-      window.removeEventListener("resize", close);
+      window.removeEventListener("scroll", handleScroll, true);
+      window.removeEventListener("resize", handleResize);
     };
   }, [isOpen]);
 
@@ -112,6 +118,7 @@ function ComboBox({ value, onChange, options, getLabel, placeholder, wrapperClas
           openDropdown();
         }}
         onFocus={openDropdown}
+        onClick={openDropdown}
         onBlur={() => setTimeout(() => setIsOpen(false), 150)}
         className={inputClassName}
       />
@@ -119,6 +126,7 @@ function ComboBox({ value, onChange, options, getLabel, placeholder, wrapperClas
         filtered.length > 0 &&
         createPortal(
           <ul
+            ref={listRef}
             className="fixed z-[99999] max-h-52 overflow-y-auto bg-[#0F172A] border border-[#BDBDBDB0] rounded-xl shadow-2xl"
             style={{ top: pos.top, left: pos.left, width: pos.width }}
           >
@@ -168,9 +176,11 @@ const InquiryForm = ({ isOpen, onClose }) => {
   const [submitted, setSubmitted] = useState(false);
   const [countriesList, setCountriesList] = useState(DEFAULT_COUNTRIES);
   const [cityHelper, setCityHelper] = useState(null);
+  const [portfolioFile, setPortfolioFile] = useState(null);
 
   const phoneButtonRef = useRef(null);
   const formScrollRef = useRef(null);
+  const portfolioInputRef = useRef(null);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -232,6 +242,11 @@ const InquiryForm = ({ isOpen, onClose }) => {
 
   const updateCity = (val) => {
     setValues((v) => ({ ...v, city: val }));
+  };
+
+  const handlePortfolioChange = (e) => {
+    const file = e.target.files?.[0] || null;
+    setPortfolioFile(file);
   };
 
   const citiesForSelectedCountry = countryIso && cityHelper ? cityHelper.getCitiesOfCountry(countryIso) || [] : [];
@@ -299,6 +314,8 @@ const InquiryForm = ({ isOpen, onClose }) => {
     setIsNotRobot(false);
     setSubmitError("");
     setSubmitted(false);
+    setPortfolioFile(null);
+    if (portfolioInputRef.current) portfolioInputRef.current.value = "";
     onClose();
   };
 
@@ -332,6 +349,7 @@ try {
     timeline: values.timeline.trim(),
     existing_website: hasExisting === "yes" ? "Yes" : "No",
     project_description: values.description.trim(),
+    portfolio_file_name: portfolioFile ? portfolioFile.name : "No file attached",
     reply_to: values.email.trim(),
   });
   setSubmitted(true);
@@ -689,6 +707,35 @@ try {
                 }`}
               />
               {errors.description && <p className="inquiry-error-text mt-1 text-[10px] sm:text-[11px] text-red-400">{errors.description}</p>}
+            </div>
+
+            {/* Upload Portfolio */}
+            <div className="inquiry-field-rise" style={{ animationDelay: "260ms" }}>
+              <p className="text-sm sm:text-base text-white font-semibold mb-1.5 sm:mb-2">
+                Upload Portfolio/Project
+              </p>
+              <div className="flex items-center gap-3 bg-white/5 border border-[#BDBDBDB0] rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3">
+                <button
+                  type="button"
+                  onClick={() => portfolioInputRef.current?.click()}
+                  className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] hover:opacity-90 text-white text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg transition-all shrink-0"
+                >
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1M12 12V3m0 0L8 7m4-4l4 4" />
+                  </svg>
+                  Choose File
+                </button>
+                <span className="text-xs sm:text-sm text-slate-400 truncate">
+                  {portfolioFile ? portfolioFile.name : "No file chosen"}
+                </span>
+                <input
+                  ref={portfolioInputRef}
+                  type="file"
+                  onChange={handlePortfolioChange}
+                  accept=".pdf,.doc,.docx,.zip,.rar,image/*"
+                  className="hidden"
+                />
+              </div>
             </div>
 
             {/* Existing Website/App */}

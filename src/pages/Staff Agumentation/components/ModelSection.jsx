@@ -18,7 +18,7 @@ export default function ModelSection() {
   }, []);
 
   return (
-    <div class="mt-[10px] overflow-visible md:mt-[25px] lg:mt-0 mb-[50px] md:mb-0 lg:mb-0"> 
+    <div className="mt-[10px] overflow-visible md:mt-[25px] lg:mt-0 mb-[50px] md:mb-0 lg:mb-0"> 
     <section className="max-w-[1150px] px-4 mx-auto mt-[-45px] md:mt-[-100px] lg:mt-16">
       <p className="font-semibold  text-[18px] leading-[18px] text-[#04A3DA] mb-8 text-center">THE MODEL</p>
 

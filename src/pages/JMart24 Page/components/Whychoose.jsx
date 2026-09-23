@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 
 export default function Features() {
   return (
-    <div class="md:mt-[-100px] mt-0 lg:mt-[-15px] lg:mb-[100px] mb-[-40px]">
+    <div class="md:mt-[-100px] mt-0 lg:mt-[35px] lg:mb-[120px] mb-[-40px]">
     <section
       className="why-hire-section py-10 md:py-0 lg:py-0 px-4 max-w-[1000px] mx-auto mt-[-50px] md:mt-[-150px] lg:mt-0 mb-[-100px] md:mb-16 lg:mb-[-30px]"
       id="why-product-section"

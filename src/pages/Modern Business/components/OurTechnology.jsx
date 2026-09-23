@@ -54,7 +54,7 @@ export default function OurTechnology() {
       {/* Background Subtle Gradient Glow */}
       <div className="" />
 
-      <div className="max-w-[1050px] mx-auto px-4 sm:px-6 lg:px-8 md:mt-0 mt-[-70px]">
+      <div className="max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8 md:mt-0 mt-[-70px]">
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-6 md:mb-6 lg:mb-6">
@@ -110,7 +110,7 @@ export default function OurTechnology() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-semibold lg:max-w-[200px] text-[20px] md:text-[28px] leading-[22px] md:leading-[36px] tracking-[-0.5px] mb-3 whitespace-nowrap overflow-hidden text-ellipsis md:whitespace-normal md:overflow-visible">
+                <h3 className="font-semibold lg:max-w-[500px] text-[20px] md:text-[28px] leading-[22px] md:leading-[36px] tracking-[-0.5px] mb-3 whitespace-nowrap overflow-hidden text-ellipsis md:whitespace-normal md:overflow-visible">
                   {card.title}
                 </h3>
 

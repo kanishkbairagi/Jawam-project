@@ -84,7 +84,9 @@
     line-height: 18px !important;
   }
   .portfolio-card img {
-    height: 180px !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .portfolio-card.is-active .img-overlay {
     opacity: 0;

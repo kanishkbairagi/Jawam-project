@@ -24,7 +24,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="mt-[-50px] md:mt-[-45px] lg:mt-[30px]">
+    <div className="mt-[-50px] md:mt-[-45px] lg:mt-[50px]">
       <section className="max-w-[1050px] mx-auto mb-20 px-4 md:px-6 lg:px-8">
         <div className="text-center mb-6 lg:mb-3">
           <p className="text-[#04A3DA] font-bold text-xs md:text-xl tracking-widest uppercase mb-2">

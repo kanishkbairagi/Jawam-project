@@ -1,7 +1,7 @@
 export default function Process() {
   return (
     <div>
-    <section className="py-10 md:py-0 lg:pt-4 px-4 max-w-[1150px] mx-auto">
+    <section className="py-10 md:py-0 lg:pt-10 px-4 max-w-[1150px] mx-auto">
 
       <div className="relative overflow-hidden rounded-3xl bg-[#091D3E] border border-white/10 px-6 py-8 md:p-10 text-center shadow-2xl">
 

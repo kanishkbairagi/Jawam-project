@@ -11,7 +11,7 @@ export default function WhyAugmentSection() {
   }, []);
 
   return (
-    <section className="px-4 max-w-[1150px] mx-auto mt-8 md:mt-8 lg:mt-16 mb-8 md:mb-0 lg:mb-0">
+    <section className="px-4 max-w-[1150px] mx-auto mt-8 md:mt-8 lg:mt-24 mb-8 md:mb-0 lg:mb-0">
       <div className="text-center mb-6 md:mb-8">
         <p className="mb-2 font-semibold text-[13px] md:text-[16px] leading-[18px] tracking-[0px] text-center text-[#04A3DA] uppercase wa-fade-up" style={{'--d':'0s'}}>WHY AUGMENT</p>
         <h2 className="font-bold text-[28px] md:text-[44px] leading-[34px] md:leading-[48px] tracking-[-0.5px] text-center wa-fade-up" style={{'--d':'0.08s'}}>

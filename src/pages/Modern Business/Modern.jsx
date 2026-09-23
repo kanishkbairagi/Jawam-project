@@ -2,10 +2,12 @@ import React from 'react'
 import Hero from './components/Hero'
 import OurTechnology from './components/OurTechnology'
 import OurServe from './components/OurServe'
+import HowWeWork from './components/HowWeWork'
 import IndustriesSection from './components/IndustriesSection'
 import Results from './components/Results'
 import Testimonial from './components/Testimonial'
 import CTA from './components/CTA'
+import Ratings from './components/Ratings'
 import './modern.css'
 
 export default function Modern() {
@@ -20,6 +22,9 @@ export default function Modern() {
       {/* 3. Our Services Section */}
       <OurServe />
 
+      {/* How We Work Section */}
+      <HowWeWork />
+
       {/* 4. Industries We Serve Section */}
       <IndustriesSection />
 
@@ -28,6 +33,9 @@ export default function Modern() {
 
       {/* 6. Words of Praise (Testimonials) Section */}
       <Testimonial />
+
+      {/* Ratings Section */}
+      <Ratings />
 
       {/* 7. Call To Action Section */}
       <CTA />

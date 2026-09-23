@@ -127,9 +127,8 @@ const Hero = () => {
       font-semibold
       p-0 sm:px-4 sm:py-2 lg:px-6 lg:py-3
       rounded-full
-      bg-gradient-to-r from-[#0ea5e9] to-[#2563eb]
-      shadow-[0_4px_20px_rgba(14,165,233,0.3)]
 
+      bg-green-500
       hover:opacity-95
       hover:scale-105
       hover:shadow-[0_8px_30px_rgba(14,165,233,0.45)]

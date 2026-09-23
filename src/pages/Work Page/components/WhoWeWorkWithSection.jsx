@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function WhoWeWorkWithSection() {
   return (
-    <section id="who-we-work-with-section" className="pt-8  pb-12 md:py-16 lg:py-20 px-4 mt-[-50px] md:mt-[-60px] lg:mt-[-100px] mb-0 md:mb-6 lg:mb-0">
+    <section id="who-we-work-with-section" className="pt-8  pb-12 md:py-16 lg:py-20 px-4 mt-[-50px] md:mt-[-60px] lg:mt-[-60px] mb-0 md:mb-6 lg:mb-4">
       <div className="max-w-[960px] mx-auto">
         <div className="text-center mb-8 md:mb-8 lg:mb-16">
           <p className="mb-4 md:mb-2 lg:mb-4  font-semibold text-[14px] md:text-[15px] lg:text-[16px] leading-[16px] md:leading-[17px] lg:leading-[18px] tracking-[0px] text-center text-[#04A3DA]">WHO WE WORK WITH?</p>

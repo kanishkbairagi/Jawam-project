@@ -9,7 +9,7 @@ const businessTypes = [
 ];
 
   return (
-    <div class="mt-[-55px] md:mt-[-70px] lg:mt-0">
+    <div class="mt-[-55px] md:mt-[-70px] lg:mt-10">
     <section className="py-10 md:py-14 lg:py-20 px-4 md:px-8 lg:px-16 bg-[#0F172A] ">
       <div className="max-w-7xl mx-auto text-center">
         <p className="font-semibold text-[13px] md:text-[14px] lg:text-[16px] leading-[16px] md:leading-[17px] lg:leading-[18px] tracking-[0] text-[#04A3DA] mb-3 md:mb-4">

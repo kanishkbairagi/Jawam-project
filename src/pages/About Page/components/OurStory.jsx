@@ -94,7 +94,8 @@ export default function OurStory() {
 
                   {/* Card */}
                   <motion.div
-                    className="bg-[#263C50] border border-[#BDBDBDB0] w-full rounded-2xl p-4 sm:p-5 flex flex-col justify-center"
+                    className="bg-[#263C50]   border
+         border-white/20 w-full rounded-2xl p-4 sm:p-5 flex flex-col justify-center"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
@@ -141,7 +142,8 @@ export default function OurStory() {
                   {/* Card side */}
                   <div className="w-1/2 flex items-center justify-center px-6 py-2">
                     <motion.div
-                      className="bg-[#263C50] border border-[#BDBDBDB0] w-[420px] h-[200px] rounded-2xl p-6 flex flex-col justify-center"
+                      className="bg-[#263C50]   border
+         border-white/30 w-[420px] h-[200px] rounded-2xl p-6 flex flex-col justify-center"
                       initial={{ opacity: 0, x: item.side === 'left' ? -60 : 60 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, amount: 0.4 }}

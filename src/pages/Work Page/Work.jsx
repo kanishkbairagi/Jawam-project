@@ -3,6 +3,7 @@ import './work.css';
 import HeroSection from './components/HeroSection';
 import CollaborationSection from './components/CollaborationSection';
 import WhoWeWorkWithSection from './components/WhoWeWorkWithSection';
+import Tools from './components/Tools';
 import DreamTeamSection from './components/DreamTeamSection';
 
 export default function Work() {
@@ -11,6 +12,7 @@ export default function Work() {
       <HeroSection />
       <CollaborationSection />
       <WhoWeWorkWithSection />
+      <Tools />
       <DreamTeamSection />
     </main>
   );

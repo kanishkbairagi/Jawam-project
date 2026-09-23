@@ -377,8 +377,8 @@ export default function Hero() {
     <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 md:w-3.5 md:h-3.5 lg:w-[17px] lg:h-[17px] shrink-0">
       <path d="M13.5 0L12.555 2.0625L10.5 3L12.555 3.945L13.5 6L14.4375 3.945L16.5 3L14.4375 2.0625M6 2.25L4.125 6.375L0 8.25L4.125 10.125L6 14.25L7.875 10.125L12 8.25L7.875 6.375M13.5 10.5L12.555 12.555L10.5 13.5L12.555 14.4375L13.5 16.5L14.4375 14.4375L16.5 13.5L14.4375 12.555" fill="#3B82F6"/>
     </svg>
-    <span className="text-[11px] md:text-[13px]   lg:text-[16px] font-semibold text-[#4B5563]">
-      Trusted Digital Partner for modern Businesses
+    <span className="text-[10.9px] md:text-[13px]   lg:text-[16px] font-semibold text-[#4B5563]">
+      Trusted Digital Partner For Modern Businesses
     </span>
   </button>
 
@@ -402,28 +402,18 @@ export default function Hero() {
     We design, develop and launch high performing digital solutions for modern businesses from concept to scale.
   </p>
 
-  <div
-    className="hero-fade-up flex mt-0 md:mt-[-10px] lg:mt-0 flex-nowrap items-center justify-start md:justify-center lg:justify-start gap-3 sm:gap-4 md:gap-3 w-full sm:w-auto"
-    style={{ animationDelay: '420ms' }}
-  >
-    <Link
-      to="/contact-us"
-      className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2 md:gap-1.5 px-4 sm:px-7 md:px-5 py-2.5 sm:py-3.5 md:py-2.5 rounded-full bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] text-white font-semibold text-xs sm:text-base md:text-sm shadow-[0_4px_25px_rgba(14,165,233,0.4)] hover:shadow-[0_6px_30px_rgba(14,165,233,0.6)] hover:scale-[1.02] active:scale-[0.98] transition-all whitespace-nowrap"
-    >
-      <span>Contact Us</span>
-      <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-3.5 md:h-3.5" />
-    </Link>
-
-    <Link
-      to="/work"
-      className="flex-1 sm:flex-initial inline-flex items-center justify-center px-4 sm:px-7 md:px-5 py-2.5 sm:py-3.5 md:py-2.5 rounded-full bg-white text-slate-900 font-semibold text-xs sm:text-base md:text-sm hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md whitespace-nowrap"
-    >
-      Work With Us
-    </Link>
-  </div>
+<div className="hero-animate hero-delay-3 mx-auto lg:mx-0 md:mx-0 mt-[px] md:mt-0 lg:mt-[-5px] flex flex-row items-center justify-center gap-2 sm:gap-4 md:gap-3 lg:gap-4 mt-0 lg:mt-6 mb-4 lg:mb-8">
+  <Link to="/contact-us" className="hero-btn-primary flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 md:gap-1.5 lg:gap-2 text-xs sm:text-sm md:text-xs lg:text-sm text-white font-semibold px-4 sm:px-6 md:px-4 lg:px-6 py-2.5 sm:py-3 md:py-2 lg:py-3 rounded-full bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] shadow-[0_4px_20px_rgba(14,165,233,0.3)] hover:opacity-95 transition-all whitespace-nowrap">
+    Contact Us
+    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+    </svg>
+  </Link>
+  <Link to="/work" className="hero-btn-secondary flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 md:gap-1.5 lg:gap-2 text-xs sm:text-sm md:text-xs lg:text-sm text-slate-900 font-semibold px-4 sm:px-6 md:px-4 lg:px-6 py-2.5 sm:py-3 md:py-2 lg:py-3 rounded-full bg-white hover:bg-slate-100 transition-all border border-white whitespace-nowrap">
+    Work with Us
+  </Link>
 </div>
-
-
+</div>
 
           {/* Right Hero Graphic - Orbital AI Ecosystem — hidden on mobile, shown sm+ */}
           <div className="hidden lg:flex lg:col-span-6 items-center justify-center lg:mt-[-35px] relative min-h-[380px] sm:min-h-[500px]">
@@ -507,7 +497,7 @@ export default function Hero() {
 
 
 {/* Partner Logos Banner - Full Width Curved White Section */}
-<div  className="mt-6 mt-0 md:mt-[-10px] lg:mt-0 lg:mt-6 md:mt-20 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
+<div  className="mt-6 mt-[-5px] md:mt-[-10px] lg:mt-0 lg:mt-6 md:mt-20 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
 
   {/* ================= TOP CURVE ================= */}
   <div  className="w-full leading-none -mb-1 pointer-events-none">

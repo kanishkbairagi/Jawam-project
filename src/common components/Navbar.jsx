@@ -75,12 +75,24 @@ const resourceLinks = [
   { label: 'AI Solutions & Services', to: '/ai-solutions', Icon: IconAiSolutions },
 ]
 
+const mainNavLinks = [
+  { label: 'Home', to: '/' },
+  { label: 'About Us', to: '/about-us' },
+  { label: 'Services', to: '/services' },
+  { label: 'Industries', to: '/industries' },
+  { label: 'Work With Us', to: '/work' },
+  { label: 'Careers', to: '/careers' },
+]
+
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false)
   const [desktopResourcesOpen, setDesktopResourcesOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
+
+  const isActive = (path) => location.pathname === path
+  const isResourceActive = resourceLinks.some((r) => location.pathname === r.to)
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false)
@@ -137,12 +149,20 @@ export default function Navbar() {
 
         <nav className="hidden lg:flex flex-1 justify-center">
           <ul className="flex items-center gap-x-6 md:gap-x-8 px-6 md:px-8 py-2.5 rounded-full text-base md:text-sm font-medium whitespace-nowrap">
-            <li><Link to="/" className="text-[#E7E8EA] hover:text-sky-400 transition-colors  text-[17px]">Home</Link></li>
-            <li><Link to="/about-us" className="text-[#E7E8EA] hover:text-sky-400 transition-colors  text-[17px]">About Us</Link></li>
-            <li><Link to="/services" className="text-[#E7E8EA] hover:text-sky-400 transition-colors  text-[17px]">Services</Link></li>
-            <li><Link to="/industries" className="text-[#E7E8EA] hover:text-sky-400 transition-colors  text-[17px]">Industries</Link></li>
-            <li><Link to="/work" className="text-[#E7E8EA] hover:text-sky-400 transition-colors  text-[17px]">Work With Us</Link></li>
-            <li><Link to="/careers" className="text-[#E7E8EA] hover:text-sky-400 transition-colors  text-[17px]">Careers</Link></li>
+            {mainNavLinks.map(({ label, to }) => (
+              <li key={to}>
+                <Link
+                  to={to}
+                  className={`inline-block px-3 py-1.5 -mx-3 -my-1.5 rounded-full transition-colors text-[17px] ${
+                    isActive(to)
+                      ? 'text-sky-400 '
+                      : 'text-[#E7E8EA] hover:text-sky-400 '
+                  }`}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
 
             {/* Resources dropdown — now controlled by state instead of pure CSS
                 :hover, so it can be force-closed on navigation. Still opens/closes
@@ -154,8 +174,10 @@ export default function Navbar() {
             >
               <button
                 type="button"
-                className={`flex items-center gap-1 transition-colors  text-[17px] ${
-                  desktopResourcesOpen ? 'text-sky-400' : 'text-[#E7E8EA]'
+                className={`flex items-center gap-1 px-3 py-1.5 -mx-3 -my-1.5 rounded-full transition-colors text-[17px] ${
+                  desktopResourcesOpen || isResourceActive
+                    ? 'text-sky-400 '
+                    : 'text-[#E7E8EA]'
                 }`}
               >
                 Resources
@@ -189,12 +211,18 @@ export default function Navbar() {
                         key={label}
                         to={to}
                         onClick={() => setDesktopResourcesOpen(false)}
-                        className="resource-row group/item flex items-center gap-4 rounded-2xl px-4 py-3 -mx-4 -my-3 hover:bg-white/5 transition-colors"
+                        className={`resource-row group/item flex items-center gap-4 rounded-2xl px-4 py-3 -mx-4 -my-3 transition-colors ${
+                          isActive(to) ? 'bg-sky-400/10' : 'hover:bg-white/5'
+                        }`}
                       >
-                        <span className="resource-icon w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 group-hover/item:bg-sky-400/20 transition-colors">
+                        <span className={`resource-icon w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 transition-colors ${
+                          isActive(to) ? 'bg-sky-400/20' : 'bg-white/10 group-hover/item:bg-sky-400/20'
+                        }`}>
                           <Icon />
                         </span>
-                        <span className="text-[#E7E8EA] text-[17px]  whitespace-nowrap transition-all duration-300 group-hover/item:text-sky-400 group-hover/item:translate-x-1">
+                        <span className={`text-[17px] whitespace-nowrap transition-all duration-300 group-hover/item:text-sky-400 group-hover/item:translate-x-1 ${
+                          isActive(to) ? 'text-sky-400' : 'text-[#E7E8EA]'
+                        }`}>
                           {label}
                         </span>
                       </Link>
@@ -242,19 +270,32 @@ export default function Navbar() {
         }`}
       >
         <ul className="flex flex-col items-start px-6 py-6 gap-3.5 pb-28">
-          <li className="w-full"><Link to="/" onClick={closeMobileMenu} className="text-slate-200 hover:text-sky-400 text-lg font-semibold transition-colors block w-full py-1.5">Home</Link></li>
-          <li className="w-full"><Link to="/about-us" onClick={closeMobileMenu} className="text-slate-200 hover:text-sky-400 text-lg font-semibold transition-colors block w-full py-1.5">About Us</Link></li>
-          <li className="w-full"><Link to="/services" onClick={closeMobileMenu} className="text-slate-200 hover:text-sky-400 text-lg font-semibold transition-colors block w-full py-1.5">Services</Link></li>
-          <li className="w-full"><Link to="/industries" onClick={closeMobileMenu} className="text-slate-200 hover:text-sky-400 text-lg font-semibold transition-colors block w-full py-1.5">Industries</Link></li>
-          <li className="w-full"><Link to="/work" onClick={closeMobileMenu} className="text-slate-200 hover:text-sky-400 text-lg font-semibold transition-colors block w-full py-1.5">Work With Us</Link></li>
-          <li className="w-full"><Link to="/careers" onClick={closeMobileMenu} className="text-slate-200 hover:text-sky-400 text-lg font-semibold transition-colors block w-full py-1.5">Careers</Link></li>
+          {mainNavLinks.map(({ label, to }) => (
+            <li className="w-full" key={to}>
+              <Link
+                to={to}
+                onClick={closeMobileMenu}
+                className={`text-lg font-semibold transition-colors block w-full py-1.5 px-3 -mx-3 rounded-xl ${
+                  isActive(to)
+                    ? 'text-sky-400 '
+                    : 'text-slate-200'
+                }`}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
 
           {/* Resources accordion — tap to expand on mobile */}
           <li className="w-full">
             <button
               type="button"
               onClick={() => setMobileResourcesOpen((prev) => !prev)}
-              className="flex items-center justify-start gap-2 w-full text-slate-200 hover:text-sky-400 text-lg font-semibold transition-colors py-1.5"
+              className={`flex items-center justify-start gap-2 w-full text-lg font-semibold transition-colors py-1.5 px-3 -mx-3 rounded-xl ${
+                mobileResourcesOpen || isResourceActive
+                  ? 'text-sky-400 '
+                  : 'text-slate-200 '
+              }`}
               aria-expanded={mobileResourcesOpen}
             >
               Resources
@@ -279,12 +320,18 @@ export default function Navbar() {
                   key={label}
                   to={to}
                   onClick={closeMobileMenu}
-                  className="resource-row group/item flex items-center gap-2.5 py-2.5 px-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
+                  className={`resource-row group/item flex items-center gap-2.5 py-2.5 px-2 rounded-xl transition-colors ${
+                    isActive(to) ? 'bg-sky-400/15' : 'bg-white/5 hover:bg-white/10'
+                  }`}
                 >
-                  <span className="resource-icon w-7 h-7 rounded-xl bg-white/10 flex items-center justify-center shrink-0 group-hover/item:bg-sky-400/20 transition-colors">
+                  <span className={`resource-icon w-7 h-7 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                    isActive(to) ? 'bg-sky-400/20' : 'bg-white/10 group-hover/item:bg-sky-400/20'
+                  }`}>
                     <Icon />
                   </span>
-                  <span className="text-slate-300 text-xs font-medium transition-all duration-300 group-hover/item:text-sky-400 group-hover/item:translate-x-1">
+                  <span className={`text-xs font-medium transition-all duration-300 group-hover/item:text-sky-400 group-hover/item:translate-x-1 ${
+                    isActive(to) ? 'text-sky-400' : 'text-slate-300'
+                  }`}>
                     {label}
                   </span>
                 </Link>

@@ -1,11 +1,25 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  ChevronDown,
+  Code2,
+  Globe,
+  Layers,
+  Smartphone,
+  Settings,
+  PenTool,
+  ShieldCheck,
+  Cloud,
+  CheckCircle2,
+  ArrowRight,
+} from "lucide-react";
 
 const services = [
   {
     id: 1,
     title: "Software Development",
-
+    icon: Code2,
+    route: "/services/vision",
     desc:
       "We craft intelligent software solutions that simplify operations, accelerate growth, and transform business ideas into scalable digital products. Our development approach focuses on innovation, security, and long term performance.",
 
@@ -19,7 +33,8 @@ const services = [
   {
     id: 2,
     title: "Web Development",
-
+    icon: Globe,
+    route: "/services/vision2",
     desc:
       "Your website is your digital identity. We build fast, responsive, and visually engaging web experiences that help brands stand out and convert visitors into customers.",
 
@@ -33,7 +48,8 @@ const services = [
   {
     id: 3,
     title: "Full Stack Development",
-
+    icon: Layers,
+    route: "/services/vision9",
     desc:
       "From intuitive frontend interfaces to powerful backend systems, we deliver complete full stack solutions designed for speed, scalability, and seamless performance.",
 
@@ -47,7 +63,8 @@ const services = [
   {
     id: 4,
     title: "Mobile App Development",
-
+    icon: Smartphone,
+    route: "/services/vision3",
     desc:
       "We create mobile applications that deliver smooth user experiences, strong functionality, and real business impact across Android and iOS platforms.",
 
@@ -61,7 +78,8 @@ const services = [
   {
     id: 5,
     title: "Custom Software Solutions",
-
+    icon: Settings,
+    route: "/services/vision7",
     desc:
       "Every business is unique and your software should be too. We design customized digital solutions that align perfectly with your workflows and business objectives.",
 
@@ -75,7 +93,8 @@ const services = [
   {
     id: 6,
     title: "UI/UX Design",
-
+    icon: PenTool,
+    route: "/services/vision4",
     desc:
       "We design digital experiences that are not only visually attractive but also intuitive, user friendly, and conversion-focused.",
 
@@ -89,7 +108,8 @@ const services = [
   {
     id: 7,
     title: "Quality Assurance",
-
+    icon: ShieldCheck,
+    route: "/services/vision10",
     desc:
       "Quality is at the core of everything we build. Our testing process ensures your software performs flawlessly, securely, and reliably under every condition.",
 
@@ -103,7 +123,8 @@ const services = [
   {
     id: 8,
     title: "DevOps & Cloud",
-
+    icon: Cloud,
+    route: "/services/vision6",
     desc:
       "We help businesses scale efficiently with modern cloud infrastructure, automated deployment pipelines, and reliable DevOps practices.",
 
@@ -129,7 +150,7 @@ const OurServe = () => {
     <section
       className="
       w-full
-      bg-[#0F172A]
+      
       overflow-visible
       mt-0 md:mt-[-60px] lg:mt-0
       px-3
@@ -152,15 +173,68 @@ const OurServe = () => {
           .no-scrollbar::-webkit-scrollbar {
             display: none;               /* Chrome, Safari, modern Edge */
           }
+
+          @keyframes serve-fade-up {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes serve-pill-in {
+            from { opacity: 0; transform: translateY(10px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+          }
+          @keyframes serve-panel-in {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes serve-check-in {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+          }
+          @keyframes serve-row-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+
+          .serve-heading-anim {
+            opacity: 0;
+            animation: serve-fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          }
+          .serve-pill-anim {
+            opacity: 0;
+            animation: serve-pill-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          }
+          .serve-panel-anim {
+            animation: serve-panel-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+          }
+          .serve-check-anim {
+            opacity: 0;
+            animation: serve-check-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          }
+          .serve-row-anim {
+            opacity: 0;
+            animation: serve-row-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .serve-heading-anim,
+            .serve-pill-anim,
+            .serve-panel-anim,
+            .serve-check-anim,
+            .serve-row-anim {
+              animation: none !important;
+              opacity: 1 !important;
+              transform: none !important;
+            }
+          }
         `}
       </style>
 
-      <div className="max-w-[1150px] mx-auto mt-[-80px] md:mt-0 lg:mt-[-35px] overflow-visible">
+      <div className="max-w-[1550px] mx-auto mt-[-80px] md:mt-0 lg:mt-[-35px] overflow-visible">
         {/* HEADING */}
 
       {/* heading */}
-          <div className="text-center mb-2">
-            <div class="mb-[15px] lg:mb-0 md:mb-0">
+          <div className="text-center mb-2 serve-heading-anim">
+            <div className="mb-[15px] lg:mb-0 md:mb-0">
           <p className="font-semibold     text-[rgba(4,163,218,1)] text-[13px] leading-[8.39px] lg:text-[16px] lg:leading-[18px] sm:text-[16px] sm:leading-[18px]  md:text-[16px] md:leading-[18px] tracking-[0px]  uppercase ">OUR SERVICES</p>
           </div>
            <h2 className=" mt-2 text-center font-sans  font-bold text-[20.4px]
@@ -173,18 +247,19 @@ const OurServe = () => {
           mt-6
           relative
           z-10
-         border border-[#BDBDBDB0]
+          border
+         border-white/20
           w-full
 
           max-w-[730px]
-          lg:max-w-[1000px]
+          md:max-w-[950px]
+          lg:max-w-[1150px]
 
           mx-auto
 
           min-h-fit
-          lg:h-[446px]
 
-            bg-[#0F172A]
+          
 
           rounded-[20px]
           sm:rounded-[28px]
@@ -215,8 +290,12 @@ const OurServe = () => {
             w-full 
             "
           >
-            {services.map((item) => (
-              <div key={item.id} className="overflow-hidden">
+            {services.map((item, index) => (
+              <div
+                key={item.id}
+                className="overflow-hidden serve-row-anim"
+                style={{ animationDelay: `${index * 60}ms` }}
+              >
                 {/* TITLE ROW — inactive: dark/transparent bg + white text. Active: solid #04A3DA bg + white text (same as desktop's active tab). Slides right on hover. */}
 
                 <button
@@ -378,6 +457,44 @@ const OurServe = () => {
                           </div>
                         ))}
                       </div>
+
+                      {/* LEARN MORE — routes to the same page as the desktop CTA */}
+                      <Link
+                        to={item.route}
+                        className="
+                        mt-4
+                        sm:mt-5
+
+                        inline-flex
+                        items-center
+                        gap-2
+
+                        border
+                        border-sky-400/40
+
+                        text-sky-300
+                        hover:bg-[#04A3DA]
+                        hover:text-white
+                        hover:border-transparent
+
+                        text-xs
+                        sm:text-sm
+                        font-semibold
+
+                        px-4
+                        sm:px-5
+                        py-2.5
+
+                        rounded-full
+
+                        transition-all
+                        duration-300
+                        no-underline
+                        "
+                      >
+                        Learn More
+                        <ArrowRight size={16} />
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -385,248 +502,205 @@ const OurServe = () => {
             ))}
           </div>
 
-          {/* ================= DESKTOP VIEW (unchanged) ================= */}
+          {/* ================= DESKTOP VIEW — horizontal pill tabs + two-column content ================= */}
 
-          <div
-            className="
-            hidden
-            md:flex
-
-            items-start
-
-            gap-3
-            lg:gap-5
-            xl:gap-6
-
-            h-full
-            "
-          >
-            {/* LEFT TABS */}
-
+          <div className="hidden md:block">
+            {/* TOP: horizontal scrollable pill tabs */}
             <div
               className="
-              w-[170px]
-              lg:w-[280px]
-              xl:w-[290px]
+              flex
+              items-center
+              gap-3
 
-              shrink-0
+              overflow-x-auto
+              no-scrollbar
 
-              pr-1
+              pb-1
+              mb-6
               "
             >
-              {/* SCROLL AREA */}
-
-              <div
-                className="
-                flex
-                flex-col
-
-                gap-1.5
-                lg:gap-1.5
-
-                h-[300px]
-                lg:h-[388px]
-                
-
-                overflow-y-auto
-
-                pr-2
-
-                no-scrollbar
-                "
-              >
-                {services.map((item) => (
+              {services.map((item, index) => {
+                const Icon = item.icon;
+                const isActive = activeDesktop === item.id;
+                return (
                   <button
                     key={item.id}
                     onClick={() => setActiveDesktop(item.id)}
                     className={`
-                      w-full
-
-                      flex
+                      shrink-0
+                      inline-flex
                       items-center
-                   
+                      gap-2
 
-                      px-3
+                      px-5
                       py-2.5
-                      lg:px-4
-                      lg:py-3.5
-text-white
-                      rounded-[12px]
-                      lg:rounded-[18px]
 
-                      
+                      rounded-full
 
-                      text-left
+                      border
+
+                      text-sm
+                      font-semibold
+
+                      whitespace-nowrap
 
                       transition-all
                       duration-300
-                      hover:translate-x-1
+
+                      serve-pill-anim
+
                       ${
-                        activeDesktop === item.id
-                          ? "bg-[#04A3DA] text-white "
-                          : " text-white "
+                        isActive
+                          ? "bg-[#04A3DA] border-transparent text-white "
+                          : "bg-white/5 border-white/10 text-slate-300 hover:bg-white/10 hover:text-white hover:-translate-y-0.5"
                       }
                     `}
+                    style={{ animationDelay: `${index * 60}ms` }}
                   >
-                   
-
-                    {/* TITLE */}
-
-                    <span
-                      className={`
-                      text-[12px]
-                      leading-[14px]
-                      lg:text-[14px]
-                      lg:leading-[16px]
-
-                      font-semibold
-                     
-                  text-[#3F4555]    ${
-                    activeDesktop === item.id
-                          ? " text-white "
-                          : "bg-transparent  text-white "}`}>
-                      {item.title}
-                    </span>
+                    <Icon size={16} className="shrink-0" />
+                    {item.title}
                   </button>
-                ))}
-              </div>
+                );
+              })}
             </div>
 
-            {/* RIGHT CONTENT */}
+            {/* BOTTOM: content panel for the active service */}
+            {services
+              .filter((item) => item.id === activeDesktop)
+              .map((item) => (
+                <div
+                  key={item.id}
+                  className="
+                  relative
+                  overflow-hidden
 
-            <div
-              className="
-              flex-1
+                
 
-              
-              h-[300px]
-              lg:h-[388px]
+                  
 
-             bg-[#3BAFCF1A]
+                  rounded-3xl
 
-              rounded-2xl
+                  shadow-[0_8px_50px_rgba(4,163,218,0.18)]
 
-              p-4
-              lg:p-6
-              xl:p-8
+                  p-8
 
-              overflow-hidden
-              "
-            >
-              {services
-                .filter((item) => item.id === activeDesktop)
-                .map((item) => (
-                  <div
-                    key={item.id}
-                    className="
-                    h-full
+                  grid
+                  grid-cols-1
+                  md:grid-cols-2
 
-                    flex
-                    flex-col
-                    justify-between
-                    "
-                  >
-                    {/* TOP */}
+                  gap-10
 
-                    <div>
-                      {/* TITLE */}
+                  items-center
 
-                      <h3
-                        className="
-                        font-semibold
-                        text-white
+                  serve-panel-anim
+                  "
+                >
+                  {/* Ambient glow blobs, matching the pattern used elsewhere on the site */}
+                  <div className="pointer-events-none absolute -top-16 -right-16 w-64 h-64 rounded-full bg-sky-400/20 blur-[100px]"></div>
+                  <div className="pointer-events-none absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-blue-600/15 blur-[100px]"></div>
 
-                        text-[19px]
-                        leading-[24px]
+                  {/* LEFT: eyebrow, title, description, CTA */}
+                  <div className="relative z-10">
+                    <p className="text-sky-400 text-xs font-bold tracking-[0.2em] uppercase mb-3">
+                      Our Services
+                    </p>
 
-                        lg:text-[32px]
-                        lg:leading-[36px]
+                    <h3
+                      className="
+                      font-bold
+                      text-white
 
-                        xl:text-[38px]
-                        xl:leading-[46px]
+                      text-[32px]
+                      leading-[38px]
 
-                        max-w-[700px]
-                        "
-                      >
-                        {item.title}
-                      </h3>
+                      mb-4
+                      "
+                    >
+                      {item.title}
+                    </h3>
 
-                      {/* DESCRIPTION */}
+                    <p
+                      className="
+                      text-[#E7E8EA]
 
-                      <p
-                        className="
-                        mt-2
-                        lg:mt-3
+                      text-[15px]
+                      leading-[24px]
 
-                        
-                        text-[#E7E8EA]
+                      mb-6
 
-                        text-[12.5px]
-                        leading-[18px]
-                        lg:text-[16px]
-                        lg:leading-[24px]
+                      max-w-[480px]
+                      "
+                    >
+                      {item.desc}
+                    </p>
 
-                        max-w-[720px]
-                        "
-                      >
-                        {item.desc}
-                      </p>
+                    <Link
+                      to={item.route}
+                      className="
+                      inline-flex
+                      items-center
+                      gap-2
 
-                      {/* POINTS */}
+                      border
+                      border-sky-400/40
+                      bg-sky-500
+                      
+                      hover:bg-[#04A3DA]
+                      
+                      hover:border-transparent
 
-                      <div
-                        className="
-                        mt-3
-                        lg:mt-6
+                      text-sm
+                      font-semibold
 
-                        space-y-2
-                        lg:space-y-5
-                        "
-                      >
-                        {item.points.map((point, index) => (
-                          <div
-                            key={index}
-                            className="flex items-start gap-2 lg:gap-3"
-                          >
-                            <div
-                              className="
-                              mt-0.5
-                              lg:mt-0
+                      px-5
+                      py-2.5
 
-                              min-w-[10px]
-                              w-[13px]
-                              h-[13px]
-                              lg:w-[20px]
-                              lg:h-[20px]
+                      rounded-full
 
-                              rounded-full
-
-                              bg-[#04A3DA]
-                              "
-                            ></div>
-
-                            <p
-                              className="
-                             
-                       text-[#E7E8EA]
-
-
-                              text-[12.5px]
-                              leading-[16px]
-                              lg:text-[16px]
-                              lg:leading-[18px]
-
-                              "
-                            >
-                              {point}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                      transition-all
+                      duration-300
+                      no-underline
+                      "
+                    >
+                      Learn More
+                      <ArrowRight size={16} />
+                    </Link>
                   </div>
-                ))}
-            </div>
+
+                  {/* RIGHT: checklist points */}
+                  <div className="relative z-10 space-y-4">
+                    {item.points.map((point, index) => (
+                      <div
+                        key={index}
+                        className="
+                        flex
+                        items-center
+                        gap-3
+
+                        bg-white/[0.06]
+                        border
+                        border-white/10
+
+                        rounded-2xl
+
+                        p-4
+
+                        serve-check-anim
+                        "
+                        style={{ animationDelay: `${150 + index * 100}ms` }}
+                      >
+                        <CheckCircle2
+                          size={20}
+                          className="text-sky-400 shrink-0"
+                        />
+                        <p className="text-white text-base font-medium">
+                          {point}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </div>

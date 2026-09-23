@@ -582,7 +582,7 @@ export default function OpenRoles() {
       <section
         ref={sectionRef}
         id="open-roles"
-        className={`max-w-[970px] mx-auto mt-[0px] md:mt-0 lg:mt-0 mb-[90px] scroll-mt-4 md:scroll-mt-12 lg:scroll-mt-16 ${
+        className={`max-w-[970px] mx-auto mt-[0px] md:mt-0 lg:mt-0 mb-[90px] md:mb-12 lg:mb-12 scroll-mt-4 md:scroll-mt-12 lg:scroll-mt-16 ${
           hasEnteredView ? "or-visible" : ""
         }`}
       >
@@ -600,7 +600,7 @@ export default function OpenRoles() {
             {JOBS.map((job, index) => (
               <div
                 key={job.id}
-                className="or-row-anim border border-[#BDBDBDB0] bg-[#FDFDFD33] rounded-2xl p-3 flex flex-col md:flex-row md:items-center md:justify-between gap-2 hover:border-[#04A3DA]/30 hover:bg-slate-800/35 transition-all duration-300"
+                className="or-row-anim border border-white/20  rounded-2xl p-3 flex flex-col md:flex-row md:items-center md:justify-between gap-2 hover:border-[#04A3DA]/30 hover:bg-slate-800/35 transition-all duration-300"
                 style={{ animationDelay: hasEnteredView ? `${0.5 + index * 0.12}s` : undefined }}
               >
                 <div>

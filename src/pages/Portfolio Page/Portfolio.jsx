@@ -1,5 +1,6 @@
 import PortfolioHero from './components/PortfolioHero';
 import PortfolioSection from './components/PortfolioSection';
+import TrustedClients from './components/TrustedClients';
 import JourneySection from './components/JourneySection';
 import './portfolio.css';
 
@@ -9,6 +10,7 @@ const Portfolio = () => {
       <main id="pomtfolio" className="mb-[-60px] md:mb-[-90px]">
         <PortfolioHero />
         <PortfolioSection />
+        <TrustedClients />
         <JourneySection />
       </main>
     </>

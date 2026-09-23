@@ -285,7 +285,7 @@ export default function Cards() {
 
           ) : (
             /* DESKTOP ONLY (lg+): original scroll-driven grid -> carousel morph, untouched */
-            <div ref={trackRef} className="lg:mb-[-0px] lg:mt-[0px] md:mt-[0px] md:mb-[150px] overflow-visible mt-[0]" style={{ height: `${MORPH_SCROLL_VH}vh` }}>
+            <div ref={trackRef} className="lg:mb-[-0px] lg:mt-[-30px] md:mt-[0px] md:mb-[150px] overflow-visible mt-[0]" style={{ height: `${MORPH_SCROLL_VH}vh` }}>
               <div className="sticky top-16 md:top-[800px] lg:top-[1020px] ">
                 <div className="relative" style={stackContainerStyle}>
 

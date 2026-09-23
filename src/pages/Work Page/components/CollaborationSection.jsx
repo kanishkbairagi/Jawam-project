@@ -11,7 +11,7 @@ export default function CollaborationSection() {
     <section id="collaboration-section" className=" pt-8 mx-auto overflow-visible pb-12 md:py-20 px-4 bg-[#0F172A] mx-auto mt-0 md:mt-[-380px] lg:mt-[-280px] mb-[-50px] md:mb-6 lg:mb-0">
 
       <div className="max-w-[950px] mx-auto">
-        <h2 className="relative  mb-6 md:mb-6 lg:mb-[50px] font-semibold text-[20px] md:text-[22px] lg:text-[32px] leading-[16px] md:leading-[17px] lg:leading-[18px] tracking-[0px] text-center text-[#04A3DA]">Let’s Work Together</h2>
+        <h2 className="relative  mb-6 md:mb-6 lg:mb-[50px] md:mt-10 mt-0 lg:mt-0 font-semibold text-[20px] md:text-[22px] lg:text-[32px] leading-[16px] md:leading-[17px] lg:leading-[18px] tracking-[0px] text-center text-[#04A3DA]">Let’s Work Together</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
           
           {/* I'm a Client Card */}

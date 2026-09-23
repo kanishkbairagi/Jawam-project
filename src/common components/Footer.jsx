@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import logoIcon1 from '../assets/logo-icon1.png';
+import portfolioPdf from '/Jawam_infotech_Portfolio.pdf';
 
 function Footer({ onOpenTerms, onOpenPrivacy }) {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function Footer({ onOpenTerms, onOpenPrivacy }) {
   };
 
   return (
-    <footer className="bg-[#0F172A] border-t border-white/20 py-8 md:py-14 px-6 md:px-10 lg:px-12 mt-12">
+    <footer className="bg-[#0F172A] mb-16 lg:mb-0 md:mb-16 border-t border-white/20 py-8 md:py-14 px-6 md:px-10 lg:px-12 mt-12">
       <div className="mt-[-16px] max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-y-2 md:gap-x-8 lg:gap-4">
 
         <div className="contents md:flex md:flex-col md:items-start md:space-y-1 md:mt-2 lg:mt-0">
@@ -38,7 +39,7 @@ function Footer({ onOpenTerms, onOpenPrivacy }) {
           </Link>
 
 <div className="order-2 md:order-none mb-0 md:mb-6">
-  <h4 className="font-bold text-white mt-0 md:mt-[-10px] lg:mt-0 text-base md:text-lg mb-2">We are hiring !</h4>
+  <h4 className="font-bold text-white mt-0 md:mt-[25px] lg:mt-0 text-base md:text-lg mb-2">We are hiring !</h4>
   <p className="text-white text-xs md:text-sm mb-5">Discover your next role at Jawam.</p>
   <div className="flex flex-wrap items-center gap-3 mb-0 md:mb-8">
     <Link
@@ -52,7 +53,7 @@ function Footer({ onOpenTerms, onOpenPrivacy }) {
       </svg>
     </Link>
     <a
-      href="/Jawam_infotech_Portfolio.pdf"
+      href={portfolioPdf}
       download="Jawam_infotech_Portfolio.pdf"
       className="group inline-flex items-center gap-2 bg-gradient-to-r from-sky-400 to-blue-600 hover:from-sky-300 hover:to-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-full transition-all duration-300 hover:-translate-y-1 no-underline"
     >
@@ -105,6 +106,15 @@ function Footer({ onOpenTerms, onOpenPrivacy }) {
                 className="hover:text-sky-400 transition-all duration-300 hover:translate-x-1 flex items-center gap-2 no-underline text-left w-full"
               >
                 <span>→</span> Privacy Policy
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-cookie-settings'))}
+                className="hover:text-sky-400 transition-all duration-300 hover:translate-x-1 flex items-center gap-2 no-underline text-left w-full"
+              >
+                <span>→</span> Cookie Settings
               </button>
             </li>
           </ul>

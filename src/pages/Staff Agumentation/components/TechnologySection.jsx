@@ -147,8 +147,8 @@ export default function TechnologySection() {
   const repeatedTechs = [...cur.techs, ...cur.techs, ...cur.techs, ...cur.techs];
 
   return (
-    <div class="mt-[60px] md:mt-0 lg:mt-0 mb-[-20px] md:mt-0 lg:mt-0">
-    <section className="px-4 max-w-6xl mx-auto md:mt-12 mt-16 lg:mt-16 mb-[70px] md:mb-0">
+    <div class="mt-[60px] md:mt-0 lg:mt-28 mb-[-20px] md:mt-0 lg:mt-0">
+    <section className="px-4 max-w-[1140px] mx-auto md:mt-12 mt-16 lg:mt-16 mb-[70px] md:mb-0">
       <div className="text-center mb-6">
         <p className="mb-5 font-semibold md:text-[16px] text-[12px] leading-[18px] text-center text-[#04A3DA]">TECHNOLOGY WE USED</p>
         <h2 className="font-bold md:text-[44px] text-[16px] leading-[48px] tracking-[-0.5px] text-center mt-[-25px] md:mt-0 mb-[-20px] md:mb-8">

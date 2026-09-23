@@ -1,10 +1,44 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 // ---- EmailJS config (reusing your existing service + public key) ----
 const EMAILJS_SERVICE_ID = "service_nxaukhv";
 const EMAILJS_TEMPLATE_ID = "template_dv3zuqh"; // ← replace with your NEW contact-form template ID
 const EMAILJS_PUBLIC_KEY = "ZsgPJ4Y5L7dWqRzmT";
+
+// ---- Country list: ISO code (lowercase, for flag images), dial code, and name ----
+const COUNTRIES = [
+  { code: "in", dial: "+91", name: "India" },
+  { code: "us", dial: "+1", name: "United States" },
+  { code: "gb", dial: "+44", name: "United Kingdom" },
+  { code: "ca", dial: "+1", name: "Canada" },
+  { code: "au", dial: "+61", name: "Australia" },
+  { code: "ae", dial: "+971", name: "UAE" },
+  { code: "sg", dial: "+65", name: "Singapore" },
+  { code: "de", dial: "+49", name: "Germany" },
+  { code: "fr", dial: "+33", name: "France" },
+  { code: "nl", dial: "+31", name: "Netherlands" },
+  { code: "pk", dial: "+92", name: "Pakistan" },
+  { code: "bd", dial: "+880", name: "Bangladesh" },
+  { code: "np", dial: "+977", name: "Nepal" },
+  { code: "lk", dial: "+94", name: "Sri Lanka" },
+  { code: "sa", dial: "+966", name: "Saudi Arabia" },
+  { code: "jp", dial: "+81", name: "Japan" },
+  { code: "cn", dial: "+86", name: "China" },
+  { code: "br", dial: "+55", name: "Brazil" },
+  { code: "za", dial: "+27", name: "South Africa" },
+  { code: "ng", dial: "+234", name: "Nigeria" },
+];
+
+// Small helper — renders a real flag image from flagcdn.com for a given country code
+const FlagImg = ({ code, className }) => (
+  <img
+    src={`https://flagcdn.com/w40/${code}.png`}
+    srcSet={`https://flagcdn.com/w80/${code}.png 2x`}
+    alt=""
+    className={className}
+  />
+);
 
 const ContactForm = () => {
   const [values, setValues] = useState({
@@ -14,6 +48,9 @@ const ContactForm = () => {
     subject: "",
     message: "",
   });
+  const [country, setCountry] = useState(COUNTRIES[0]); // defaults to India, +91
+  const [countryOpen, setCountryOpen] = useState(false);
+  const countryRef = useRef(null);
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -25,6 +62,17 @@ const ContactForm = () => {
     const timer = setTimeout(() => setShowToast(false), 4000);
     return () => clearTimeout(timer);
   }, [showToast]);
+
+  // Close the country dropdown when clicking anywhere outside it
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (countryRef.current && !countryRef.current.contains(e.target)) {
+        setCountryOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const update = (field) => (e) => {
     setValues((v) => ({ ...v, [field]: e.target.value }));
@@ -38,9 +86,9 @@ const ContactForm = () => {
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: "" }));
   };
 
-  // Only digits, spaces, +, and - allowed (blocks letters as they're typed)
+  // Only digits and spaces allowed in the number itself (dial code is handled separately)
   const updatePhoneField = (field) => (e) => {
-    const filtered = e.target.value.replace(/[^0-9+\-\s]/g, "");
+    const filtered = e.target.value.replace(/[^0-9\s]/g, "");
     setValues((v) => ({ ...v, [field]: filtered }));
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: "" }));
   };
@@ -54,7 +102,7 @@ const ContactForm = () => {
     if (values.email.trim() && !/^\S+@\S+\.\S+$/.test(values.email))
       next.email = "Enter a valid email address.";
 
-    if (values.phone.trim() && !/^[0-9+\-\s]{7,15}$/.test(values.phone.trim()))
+    if (values.phone.trim() && !/^[0-9\s]{6,14}$/.test(values.phone.trim()))
       next.phone = "Phone number can only contain digits.";
 
     setErrors(next);
@@ -68,13 +116,17 @@ const ContactForm = () => {
     setSubmitError("");
 
     try {
+      const fullPhone = values.phone.trim()
+        ? `${country.dial} ${values.phone.trim()}`
+        : "";
+
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
           name: values.fullName,
           email: values.email,
-          phone: values.phone,
+          phone: fullPhone,
           subject: values.subject,
           message: values.message,
         },
@@ -117,7 +169,7 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <div id="sampark" className="order-1 lg:order-2 mt-[-40px] md:mt-0">
+      <div className="order-1 lg:order-2 mt-[-40px] md:mt-0">
         <div className="border border-[#BDBDBDB0] bg-white/10 rounded-2xl p-5 md:p-6">
           <form onSubmit={handleFormSubmit} className="space-y-1.4 mb-[-5px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -148,13 +200,53 @@ const ContactForm = () => {
 
             <div>
               <label className="block text-[#E7E8EA] text-xs md:text-sm font-semibold mb-1">Phone Number</label>
-              <input
-                type="tel"
-                value={values.phone}
-                onChange={updatePhoneField("phone")}
-                placeholder="Enter your Phone Number"
-                className="w-full bg-[#0a1220]/80 border border-white/10 rounded-2xl px-4 py-2 text-white text-xs md:text-sm focus:outline-none focus:border-sky-500/40 transition-colors"
-              />
+              <div className="flex items-center bg-[#0a1220]/80 border border-white/10 rounded-2xl focus-within:border-sky-500/40 transition-colors">
+                {/* Custom flag-only dropdown */}
+                <div className="relative shrink-0" ref={countryRef}>
+                  <button
+                    type="button"
+                    onClick={() => setCountryOpen((o) => !o)}
+                    aria-label="Select country"
+                    className="flex items-center gap-1.5 pl-3 pr-2 py-2 border-r border-white/10 focus:outline-none"
+                  >
+                    <FlagImg code={country.code} className="w-5 h-[14px] object-cover rounded-[2px] shrink-0" />
+                    <svg className="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {countryOpen && (
+                    <ul className="absolute z-20 mt-1 left-0 w-52 max-h-60 overflow-y-auto bg-[#0a1220] border border-white/10 rounded-xl shadow-lg py-1">
+                      {COUNTRIES.map((c) => (
+                        <li key={c.code}>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setCountry(c);
+                              setCountryOpen(false);
+                            }}
+                            className={`w-full flex items-center gap-2 px-3 py-2 text-left text-xs md:text-sm hover:bg-white/10 transition-colors ${
+                              country.code === c.code ? "bg-white/5 text-sky-400" : "text-white"
+                            }`}
+                          >
+                            <FlagImg code={c.code} className="w-5 h-[14px] object-cover rounded-[2px] shrink-0" />
+                            <span className="flex-1">{c.name}</span>
+                            <span className="text-slate-400">{c.dial}</span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                <input
+                  type="tel"
+                  value={values.phone}
+                  onChange={updatePhoneField("phone")}
+                  placeholder="Phone Number"
+                  className="w-full bg-transparent px-4 py-2 text-white text-xs md:text-sm focus:outline-none"
+                />
+              </div>
               {errors.phone && <p className="mt-1 text-[11px] text-red-400">{errors.phone}</p>}
             </div>
 

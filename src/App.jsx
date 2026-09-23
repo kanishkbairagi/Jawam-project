@@ -4,6 +4,7 @@ import Navbar from './common components/Navbar'
 import Preloader from './common components/Preloader'
 import Footer from './common components/Footer'
 import GlobalContact from './common components/GlobalContact'
+import CookieConsent from './common components/CookieConsent'
 const Portfolio = lazy(() => import('./pages/Portfolio Page/Portfolio'))
 const Blog = lazy(() => import('./pages/blog/Blog'))
 const BlogPost = lazy(() => import('./pages/blog/BlogPost'))
@@ -36,6 +37,21 @@ const AiMlTechnology = lazy(() => import('./pages/Machine Learning/AiMlTechnolog
 const BlockchainTechnology = lazy(() => import('./pages/Blockchain Technology/BlochchainTechnology'))
 const Devops = lazy(() => import('./pages/Devops Technology/Devops'))
 const Mobile = lazy(() => import('./pages/Mobile Development/Mobile'))
+const SoftwareDevelopment = lazy(() => import('./pages/Software Development/SoftwareDevelopment'))
+const WebDevelopment = lazy(() => import('./pages/Web Development/WebDevelopment'))
+const MobileAppDevelopment = lazy(() => import('./pages/Mobile App Development/MobileAppDevelopment'))
+const UiUxDesign = lazy(() => import('./pages/UIUX Design/UiUxDesign'))
+const ArtificialIntelligence = lazy(() => import('./pages/Artificial Intelligence/ArtificialIntelligence'))
+const DevopsAndCloud = lazy(() => import('./pages/Devops and cloud/DevopsAndCloud'))
+const CustomSoftware = lazy(() => import('./pages/Custom Software/CustomSoftware'))
+const ThirdPartyIntegration = lazy(() => import('./pages/Third Party Integration/ThirdPartyIntegration'))
+const FullStackDevelopment = lazy(() => import('./pages/Full Stack Development/FullStackDevelopment'))
+const QaTesting = lazy(() => import('./pages/QA & Testing/QaTesting'))
+const DataAnalytics = lazy(() => import('./pages/Data Analytics/DataAnalytics'))
+const CrmCustomization = lazy(() => import('./pages/CRM Costomization/CrmCustomization'))
+const SeoSmo = lazy(() => import('./pages/SEO SMO/SeoSmo'))
+const ItStaffAugmentation = lazy(() => import('./pages/IT Staff Agumentation/ItStaffAugmentation'))
+const DataEngineeringServices = lazy(() => import('./pages/Data Engineering Services/DataEngineeringServices'))
 import './index.css'
 
 function ScrollToTop() {
@@ -70,7 +86,7 @@ function App() {
   }, [])
 
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Preloader />
       <ScrollToTop />
       <Navbar />
@@ -142,10 +158,29 @@ function App() {
         <Route path="/blockchain-technology" element={<BlockchainTechnology />} />
         <Route path="/mobile-app-development" element={<Mobile />} />
         <Route path="/devops-technology" element={<Devops />} />
+        <Route path="/software-development" element={<SoftwareDevelopment />} />
+        <Route path="/custom-software-development" element={<SoftwareDevelopment />} />
+        <Route path="/web-development" element={<WebDevelopment />} />
+        <Route path="/mobile-app-development-services" element={<MobileAppDevelopment />} />
+        <Route path="/mobile-development" element={<MobileAppDevelopment />} />
+        <Route path="/uiux-design" element={<UiUxDesign />} />
+        <Route path="/ui-ux-design" element={<UiUxDesign />} />
+        <Route path="/artificial-intelligence" element={<ArtificialIntelligence />} />
+        <Route path="/devops-and-cloud" element={<DevopsAndCloud />} />
+        <Route path="/custom-software" element={<CustomSoftware />} />
+        <Route path="/third-party-integration" element={<ThirdPartyIntegration />} />
+        <Route path="/full-stack-development" element={<FullStackDevelopment />} />
+        <Route path="/qa-and-testing" element={<QaTesting />} />
+        <Route path="/data-analytics" element={<DataAnalytics />} />
+        <Route path="/crm-customization" element={<CrmCustomization />} />
+        <Route path="/seo-smo" element={<SeoSmo />} />
+        <Route path="/it-staff-augmentation-services" element={<ItStaffAugmentation />} />
+        <Route path="/data-engineering-services" element={<DataEngineeringServices />} />
       </Routes>
       </Suspense>
       <Footer onOpenTerms={() => setTermsOpen(true)} onOpenPrivacy={() => setPrivacyOpen(true)} />
       <GlobalContact />
+      <CookieConsent onOpenPrivacy={() => setPrivacyOpen(true)} />
       <TermsModal isOpen={termsOpen} onClose={() => setTermsOpen(false)} />
       <PrivacyModal isOpen={privacyOpen} onClose={() => setPrivacyOpen(false)} />
     </BrowserRouter>

@@ -40,7 +40,7 @@ export default function SolutionSection() {
             OUR ROLES &amp; RESPONSIBILITIES
           </p>
           <h2 className="solution-text solution-heading font-bold text-[44px] leading-[48px] tracking-[-0.5px] mb-3">
-            How I <span className="text-sky-400">Contributed</span>
+            How We <span className="text-sky-400">Contributed</span>
           </h2>
           <p className="solution-text solution-desc font-normal text-[16px] leading-[16px] tracking-[0px] mb-5">
             As a Mobile Application Developer, We contributed to the development and maintenance of Pocket Geek with a focus on cross-platform reliability and user experience.

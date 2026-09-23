@@ -37,7 +37,7 @@ export default function ChallengeSection() {
   ];
 
   return (
-    <div class="mt-[-15px] md:mt-[-25px] lg:mt-0">
+    <div class="mt-[-15px] md:mt-[-25px] lg:mt-10 ">
     <section className="px-4 max-w-[1130px] mx-auto md:mb-[80px] mb-[25px] " id="challenge-section" ref={challengeSectionRef}>
       <div className="bg-[linear-gradient(277.37deg,rgba(230,246,251,0.2)_1.45%,rgba(177,226,244,0.2)_99.6%)] border border-[#BDBDBDB0] rounded-2xl p-6 md:p-6">
         <div className="grid grid-cols-2 md:flex md:flex-row md:items-start md:justify-between gap-6 md:gap-12">

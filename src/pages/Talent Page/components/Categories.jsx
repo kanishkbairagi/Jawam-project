@@ -149,7 +149,7 @@ export default function Categories() {
   const current = tabData[activeTab];
 
   return (
-    <section className="py-4 md:py-16 lg:pt-26 px-4 lg:max-w-[1130px] md:max-w-2xl mx-auto">
+    <section className="py-4 md:py-16 lg:pt-[100px] px-4 lg:max-w-[1130px] md:max-w-2xl mx-auto">
       <div className="text-center mb-6">
         <p className="mb-6 font-semibold text-[16px] leading-[18px] text-[#04A3DA] text-center">
           TOP TALENT CATEGORIES?

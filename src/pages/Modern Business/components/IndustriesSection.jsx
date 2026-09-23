@@ -16,13 +16,17 @@ import educationHome from "../../../assets/educationHome.webp";
 import constructionHome from "../../../assets/constructionHome.webp";
 
 const industries = [
-  {
-    icon: <Car />,
-    name: "Automotive",
-    desc: "Real-time payments, fdx and trading platforms built for scale and compliance.",
-    points: ["KYC/AML pipelines", "KYC/AML pipelines", "KYC/AML pipelines"],
-    bg: automotiveHome,
-  },
+{
+  icon: <Car />,
+  name: "Automotive",
+  desc: "Real-time payments, fleet management and connected vehicle platforms built for scale and reliability.",
+  points: [
+    "KYC/AML pipelines",
+    "Connected vehicle platforms",
+    "Fleet & mobility management"
+  ],
+  bg: automotiveHome,
+},
   {
     icon: <Landmark />,
     name: "Finance",

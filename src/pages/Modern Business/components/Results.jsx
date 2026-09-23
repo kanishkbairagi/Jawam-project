@@ -121,7 +121,7 @@ export default function Results() {
         }
       `}</style>
 
-      <div className="max-w-[1150px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Container Box */}
         <div className="relative bg-[#091D3E] border border-sky-500/30 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden">

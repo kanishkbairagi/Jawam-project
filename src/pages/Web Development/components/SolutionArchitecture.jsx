@@ -63,7 +63,7 @@ export default function SolutionArchitecture() {
   }, []);
 
   return (
-    <section className="relative py-0 md:py-0 pb-[200px]  mt-0 md:mt-[-20px] lg:mt-0 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative py-0 md:py-0 mt-0 md:mt-[-20px] lg:mt-0 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <style>{`
         .faq-left-hidden {
           opacity: 0;

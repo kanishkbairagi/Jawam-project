@@ -12,6 +12,7 @@ export default function ResponsiveHeroMedia({
   desktopFallback,
   prioritizeVideo = false,
   className,
+  style,
 }) {
   const [showVideo, setShowVideo] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
@@ -32,7 +33,7 @@ export default function ResponsiveHeroMedia({
         alt=""
         aria-hidden="true"
         className={className}
-        style={{ objectPosition: '35% 50%' }}
+        style={{ objectPosition: '35% 50%', ...style }}
       />
     );
   }
@@ -44,6 +45,7 @@ export default function ResponsiveHeroMedia({
         alt=""
         aria-hidden="true"
         className={className}
+        style={style}
       />
     );
   }
@@ -63,6 +65,7 @@ export default function ResponsiveHeroMedia({
         const playback = event.currentTarget.play();
         playback?.catch(() => setVideoFailed(true));
       } : undefined}
+      style={style}
     />
   );
 }

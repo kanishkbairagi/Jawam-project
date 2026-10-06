@@ -12,6 +12,14 @@ import assurantImg from '../../../assets/assurant.png'
 import pcxImg from '../../../assets/pcx.png'
 import seasiaImg from '../../../assets/seasia.png'
 import devlabsImg from '../../../assets/devlabs.png'
+import appcurators from '../../../assets/appcurators.png'
+import codecrux from '../../../assets/codecrux.png'
+import hireramp1 from '../../../assets/hireramp1.png'
+import gartner from '../../../assets/gartner.png'
+import feedops1 from '../../../assets/feedops1.png'
+import capgemini from '../../../assets/capgemini.png'
+import bacancy from '../../../assets/bacancy.png'
+
         const partnerLogos = [
   { src: upstackImg, alt: 'UpStack' },
   { src: infinitiveImg, alt: 'Infinitive' },
@@ -19,6 +27,13 @@ import devlabsImg from '../../../assets/devlabs.png'
   { src: pcxImg, alt: 'PCX' },
   { src: seasiaImg, alt: 'Seasia' },
   { src: devlabsImg, alt: 'Devlabs Alliance' },
+  { src: appcurators, alt: 'AppCurators' },
+  { src: codecrux, alt: 'CodeCrux' },
+  { src: hireramp1, alt: 'HireRamp' },
+  { src: gartner, alt: 'Gartner' },
+  { src: feedops1, alt: 'FeedOps' },
+  { src: capgemini, alt: 'Capgemini' },
+  { src: bacancy, alt: 'Bacancy' },
 ]
 
 /* 1. Purple AI/Cloud */
@@ -175,7 +190,7 @@ export default function Hero() {
   ]
 
   // ---- Typewriter cycle for the accent word in the headline ----
-  const cyclingWords = ['AI', 'Apps', 'Platform', 'SaaS']
+  const cyclingWords = ['IT Staff Agumentation', 'AL/ML', 'Technical Talent Solutions', 'On Demand Developers']
   const [wordIndex, setWordIndex] = useState(0)
   const [typedText, setTypedText] = useState('')
   const [charIndex, setCharIndex] = useState(0)
@@ -242,6 +257,45 @@ export default function Hero() {
   const addPartnerLogoRef = (el) => {
     if (el) partnerLogoRefs.current.push(el)
   }
+
+  // ---- Responsive mobile hero background media height tracking ----
+  const sectionRef = useRef(null)
+  const heroGridRef = useRef(null)
+  const partnerBannerRef = useRef(null)
+  const [mobileMediaHeight, setMobileMediaHeight] = useState(null)
+
+  useEffect(() => {
+    const updateMediaHeight = () => {
+      if (typeof window !== 'undefined' && window.innerWidth < 768) {
+        if (sectionRef.current && partnerBannerRef.current) {
+          const sectionRect = sectionRef.current.getBoundingClientRect()
+          const bannerRect = partnerBannerRef.current.getBoundingClientRect()
+          const distance = bannerRect.top - sectionRect.top
+          if (distance > 0) {
+            // Add 35px so media seamlessly covers behind the top curve of the partner banner
+            setMobileMediaHeight(Math.round(distance + 35))
+          }
+        }
+      } else {
+        setMobileMediaHeight(null)
+      }
+    }
+
+    updateMediaHeight()
+    window.addEventListener('resize', updateMediaHeight)
+
+    let ro
+    if (typeof ResizeObserver !== 'undefined') {
+      ro = new ResizeObserver(updateMediaHeight)
+      if (heroGridRef.current) ro.observe(heroGridRef.current)
+      if (partnerBannerRef.current) ro.observe(partnerBannerRef.current)
+    }
+
+    return () => {
+      window.removeEventListener('resize', updateMediaHeight)
+      ro?.disconnect()
+    }
+  }, [])
 
 
 
@@ -327,7 +381,7 @@ export default function Hero() {
 
 
   return (
-    <section   className="relative pt-28 md:pt-36 pb-0 overflow-hidden text-white w-full">
+    <section ref={sectionRef} className="relative pt-28 md:pt-36 pb-0 overflow-hidden text-white w-full">
 
       <style>{`
         @keyframes heroFadeUp {
@@ -347,26 +401,26 @@ export default function Hero() {
         }
       `}</style>
 
-<ResponsiveHeroMedia
-  className="absolute top-0 left-0 right-0 w-full 
-             h-[500px] md:h-[580px] lg:h-[685px]
-             object-cover z-0"
-  video={homevideo}
-  mobilePoster={mobileHomePoster}
-/>
-
-<div
-  className="absolute top-0 left-0 right-0
-             h-[500px] md:h-[580px] lg:h-[685px]
-             bg-[#0F172A]/60
-             z-0 pointer-events-none"
-/>
+      {/* Hero background media container with responsive mobile height */}
+      <div
+        className="absolute top-0 left-0 right-0 w-full min-h-[620px] h-[720px] sm:h-[660px] md:min-h-0 md:h-[580px] lg:h-[685px] z-0 overflow-hidden"
+        style={mobileMediaHeight ? { height: `${mobileMediaHeight}px` } : undefined}
+      >
+        <ResponsiveHeroMedia
+          className="w-full h-full object-cover"
+          video={homevideo}
+          mobilePoster={mobileHomePoster}
+        />
+        <div
+          className="absolute inset-0 bg-[#0F172A]/60 pointer-events-none"
+        />
+      </div>
 
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]   rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-10 right-10 w-96 h-96 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 lg:gap-8 items-center">
+        <div ref={heroGridRef} className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 lg:gap-8 items-center">
 
        {/* Left Hero Content */}
 <div className="lg:col-span-6 flex flex-col items-start md:items-center lg:items-start text-left md:text-center lg:text-left lg:pl-[40px] md:pl-0 pl-0">
@@ -383,26 +437,36 @@ export default function Hero() {
   </button>
 
   <h1
-    className="hero-fade-up font-extrabold    text-[32px] sm:text-[54px] md:text-[42px] lg:text-[60px] leading-[1.1] sm:leading-[65px] md:leading-[50px] lg:leading-[65px] tracking-[-0.5px] mb-6 md:mb-5"
+    className="hero-fade-up font-extrabold    text-[32px]  md:text-[35px] lg:text-[45px] leading-[1.1] sm:leading-[65px] md:leading-[45px] lg:leading-[50px] tracking-[-0.5px] mb-6 md:mb-5"
     style={{ animationDelay: '140ms' }}
   >
-    Building Digital <br className="hidden sm:inline" />
-    <span className="text-[#04A3DA]">Products</span> That 
-    Scale for{' '}
+  Your Trusted Partner for 
+    <span className="text-[#04A3DA]"> IT Staffing </span> &  Dedicated Engineering
+    <span className="text-[#04A3DA]"> Teams</span> {' '}
     <span className="text-[#04A3DA] inline-block min-w-[2.5ch] text-left">
-      {typedText}
-      <span className="inline-block w-[3px] sm:w-[4px] h-[0.8em] bg-[#04A3DA] ml-1 align-middle animate-pulse" />
+     
+      
     </span>
   </h1>
 
   <p
-    className="hero-fade-up font-normal text-[16px] sm:text-[18px] md:text-[15px] lg:text-[18px] leading-[28px] md:leading-[22px] lg:leading-[28px] tracking-[-0.5px] mb-8 md:mb-6 text-slate-200"
-    style={{ animationDelay: '280ms' }}
+    className="hero-fade-up font-bold max-[375px]:mt-[-25px]   text-[18px] mt-0 md:mt-[-15px] lg:mt-0  md:text-[20px] lg:text-[20px] leading-[1.1] sm:leading-[65px] md:leading-[50px] lg:leading-[25px] tracking-[-0.5px] mb-6 md:mb-5"
+    style={{ animationDelay: '140ms' }}
   >
-    We design, develop and launch high performing digital solutions for modern businesses from concept to scale.
+    Expertise in -{' '}
+    <span className="text-sky-400 inline-block min-w-[2.5ch] text-left">
+      {typedText}
+    </span>
   </p>
 
-<div className="hero-animate hero-delay-3 mx-auto lg:mx-0 md:mx-0 mt-[px] md:mt-0 lg:mt-[-5px] flex flex-row items-center justify-center gap-2 sm:gap-4 md:gap-3 lg:gap-4 mt-0 lg:mt-6 mb-4 lg:mb-8">
+  <p
+    className="hero-fade-up font-normal mt-0 md:mt-[-15px] lg:mt-[-5px] text-[16px] sm:text-[18px] md:text-[15px] lg:text-[18px] leading-[28px] md:leading-[22px] lg:leading-[28px] tracking-[-0.5px] mb-8 md:mb-6 text-slate-200"
+    style={{ animationDelay: '280ms' }}
+  >
+    Build, scale, and strengthen your technology team with experienced developers and dedicated engineering resources tailored to your business needs.
+  </p>
+
+<div className="hero-animate hero-delay-3 mx-auto lg:mx-0 md:mx-0 md:mt-0 lg:mt-[-5px] flex flex-row items-center justify-center gap-2 sm:gap-4 md:gap-3 lg:gap-4 mt-0 lg:mt-6 mb-4 lg:mb-8">
   <Link to="/contact-us" className="hero-btn-primary flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 md:gap-1.5 lg:gap-2 text-xs sm:text-sm md:text-xs lg:text-sm text-white font-semibold px-4 sm:px-6 md:px-4 lg:px-6 py-2.5 sm:py-3 md:py-2 lg:py-3 rounded-full bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] shadow-[0_4px_20px_rgba(14,165,233,0.3)] hover:opacity-95 transition-all whitespace-nowrap">
     Contact Us
     <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -497,7 +561,10 @@ export default function Hero() {
 
 
 {/* Partner Logos Banner - Full Width Curved White Section */}
-<div  className="mt-6 mt-[-5px] md:mt-[-10px] lg:mt-0 lg:mt-6 md:mt-20 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
+<div
+  ref={partnerBannerRef}
+  className="mt-6 mt-[-5px] md:mt-[-10px] lg:mt-0 lg:mt-6 md:mt-20 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden"
+>
 
   {/* ================= TOP CURVE ================= */}
   <div  className="w-full leading-none -mb-1 pointer-events-none">

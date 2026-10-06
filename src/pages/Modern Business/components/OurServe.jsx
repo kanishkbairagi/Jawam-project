@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   ChevronDown,
@@ -141,10 +141,60 @@ const OurServe = () => {
   const [activeDesktop, setActiveDesktop] = useState(1);
   // Mobile accordion: default to nothing open
   const [activeMobile, setActiveMobile] = useState(null);
+  // Autoplay: paused while the pointer is over the tabs/panel so the user
+  // can read/click without the tab jumping away underneath them
+  const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
+  // Maps service id -> tab button element, so the active tab can be
+  // scrolled into view even when autoplay lands on one that's off-screen
+  const tabRefs = useRef({});
+  // The horizontal scroll container itself — scrolled manually (see effect
+  // below) instead of via scrollIntoView, which would also drag the page's
+  // vertical scroll position along with it.
+  const tabsContainerRef = useRef(null);
 
   const toggleAccordion = (id) => {
     setActiveMobile(activeMobile === id ? null : id);
   };
+
+  // Auto-advance the desktop tabs every 3s. Restarting the timeout whenever
+  // activeDesktop changes means a manual click also resets the 3s countdown,
+  // instead of the autoplay tick landing right after a manual click.
+  useEffect(() => {
+    if (isAutoplayPaused) return undefined;
+
+    const timeoutId = setTimeout(() => {
+      setActiveDesktop((prev) => {
+        const currentIndex = services.findIndex((item) => item.id === prev);
+        const nextIndex = (currentIndex + 1) % services.length;
+        return services[nextIndex].id;
+      });
+    }, 2000);
+
+    return () => clearTimeout(timeoutId);
+  }, [activeDesktop, isAutoplayPaused]);
+
+  // Whenever the active tab changes (autoplay tick or manual click), scroll
+  // the pill list so that tab is actually visible. This scrolls only the
+  // horizontal strip's own scrollLeft — NOT scrollIntoView, which walks up
+  // every scrollable ancestor (including the page) and was yanking the
+  // whole page's vertical scroll back to this section.
+  useEffect(() => {
+    const container = tabsContainerRef.current;
+    const activeTabEl = tabRefs.current[activeDesktop];
+    if (!container || !activeTabEl) return;
+
+    const containerWidth = container.clientWidth;
+    const tabLeft = activeTabEl.offsetLeft;
+    const tabWidth = activeTabEl.offsetWidth;
+
+    // Center the active tab within the visible strip
+    const targetScrollLeft = tabLeft - containerWidth / 2 + tabWidth / 2;
+
+    container.scrollTo({
+      left: Math.max(0, targetScrollLeft),
+      behavior: "smooth",
+    });
+  }, [activeDesktop]);
 
   return (
     <section
@@ -504,9 +554,14 @@ const OurServe = () => {
 
           {/* ================= DESKTOP VIEW — horizontal pill tabs + two-column content ================= */}
 
-          <div className="hidden md:block">
+          <div
+            className="hidden md:block"
+            onMouseEnter={() => setIsAutoplayPaused(true)}
+            onMouseLeave={() => setIsAutoplayPaused(false)}
+          >
             {/* TOP: horizontal scrollable pill tabs */}
             <div
+              ref={tabsContainerRef}
               className="
               flex
               items-center
@@ -525,6 +580,7 @@ const OurServe = () => {
                 return (
                   <button
                     key={item.id}
+                    ref={(el) => (tabRefs.current[item.id] = el)}
                     onClick={() => setActiveDesktop(item.id)}
                     className={`
                       shrink-0
@@ -678,12 +734,17 @@ const OurServe = () => {
                         gap-3
 
                         bg-white/[0.06]
+                        hover:bg-white/[0.14]
                         border
                         border-white/10
+                        hover:border-sky-400/40
 
                         rounded-2xl
 
                         p-4
+
+                        transition-colors
+                        duration-300
 
                         serve-check-anim
                         "

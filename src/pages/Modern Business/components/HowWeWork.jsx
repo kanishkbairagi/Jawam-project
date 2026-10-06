@@ -56,14 +56,14 @@ export default function HowWeWork() {
           {steps.map((item, index) => (
             <div
               key={index}
-              className="card-float-hover group relative overflow-hidden rounded-[10px]  border border-white/20 p-5 md:p-7 lg:p-5 flex flex-col justify-between transition-all duration-300 ease-out hover:bg-[#15233E]/80 hover:border-[#04A3DA]/60 hover:shadow-[0_12px_30px_-8px_rgba(4,163,218,0.22)] backdrop-blur-sm"
+              className="card-float-hover group relative overflow-hidden rounded-[10px]  border border-white/20 p-5 md:p-7 lg:p-5 flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-2 hover:bg-[#15233E]/80 hover:border-[#04A3DA]/60 hover:shadow-[0_12px_30px_-8px_rgba(4,163,218,0.22)] backdrop-blur-sm"
             >
               {/* Subtle top hover highlight accent line */}
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#04A3DA] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
               <div>
                 {/* Step Number */}
-                <div className="text-[25px] md:text-[28px] lg:text-[32px] font-bold text-[#04A3DA] tracking-tight mb-2 ms:mb-4 lg:mb-4">
+                <div className="text-[25px] md:text-[28px] lg:text-[32px] font-bold text-[#04A3DA] tracking-tight mb-2 ms:mb-4 lg:mb-4 inline-block">
                   {item.number}
                 </div>
 

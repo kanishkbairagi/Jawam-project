@@ -28,7 +28,7 @@ export default function HiringProcess() {
             boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             paddingBottom: '56px',
             overflow: 'hidden'
-          }} className="relative mt-[-25px] md:mt-0 lg:mt-0 overflow-hidden rounded-2xl bg-[#0A1A2F] flex flex-col justify-center px-6 md:px-8 lg:px-10 py-10 md:py-10 lg:py-12 gap-6 w-full ">
+          }} className="relative mt-[-25px] md:mt-0 lg:mt-[-60px] overflow-hidden rounded-2xl bg-[#0A1A2F] flex flex-col justify-center px-6 md:px-8 lg:px-10 py-10 md:py-10 lg:py-12 gap-6 w-full ">
 
         <div className="pointer-events-none absolute -left-20 top-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-[#04A3DA] opacity-50 blur-[90px]"></div>
         <div className="pointer-events-none absolute -right-20 top-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-[#04A3DA] opacity-50 blur-[90px]"></div>

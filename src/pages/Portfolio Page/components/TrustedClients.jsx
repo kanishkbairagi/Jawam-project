@@ -4,6 +4,13 @@ import assurantImg from '../../../assets/assurant.png';
 import pcxImg from '../../../assets/pcx.png';
 import seasiaImg from '../../../assets/seasia.png';
 import devlabsImg from '../../../assets/devlabs.png';
+import appcurators from '../../../assets/appcurators.png';
+import codecrux from '../../../assets/codecrux.png';
+import hireramp1 from '../../../assets/hireramp1.png';
+import gartner from '../../../assets/gartner.png';
+import feedops1 from '../../../assets/feedops1.png';
+import capgemini from '../../../assets/capgemini.png';
+import bacancy from '../../../assets/bacancy.png';
 import './TrustedClients.css';
 
 const TrustedClients = () => {
@@ -14,6 +21,13 @@ const TrustedClients = () => {
     { name: 'PCX', logo: pcxImg },
     { name: 'Seasia', logo: seasiaImg },
     { name: 'Devlabs', logo: devlabsImg },
+    { name: 'AppCurators', logo: appcurators },
+    { name: 'CodeCrux', logo: codecrux },
+    { name: 'HireRamp', logo: hireramp1 },
+    { name: 'Gartner', logo: gartner },
+    { name: 'FeedOps', logo: feedops1 },
+    { name: 'Capgemini', logo: capgemini },
+    { name: 'Bacancy', logo: bacancy },
   ];
 
   return (

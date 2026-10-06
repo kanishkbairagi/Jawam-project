@@ -46,9 +46,15 @@ function StatItem({ stat, isActive, delay }) {
       className="stat-rise flex flex-col items-center sm:items-start relative z-10"
       style={{ animationDelay: isActive ? `${delay}ms` : '0ms' }}
     >
-      <span className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-sky-400 tracking-tight mb-2 tabular-nums">
-        {display}
-      </span>
+   <span
+  className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-sky-400 tracking-tight mb-2 tabular-nums"
+  style={{
+    transform: 'none',
+    rotate: 'none',
+  }}
+>
+  {display}
+</span>
       <span className="text-slate-300 text-xs sm:text-sm font-medium leading-snug text-center sm:text-left">
         {stat.label}
       </span>

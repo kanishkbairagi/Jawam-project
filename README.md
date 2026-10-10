@@ -1,4 +1,4 @@
-# Jawam Infotech — Enterprise Web Platform & Architecture
+# Jawam Infotech Enterprise Web Platform & Architecture
 
 [![Lighthouse Performance](https://img.shields.io/badge/Lighthouse-96%2B-00c853?style=flat-square&logo=googlechrome&logoColor=white)](#performance-benchmarks)
 [![React](https://img.shields.io/badge/React-18.x-61dafb?style=flat-square&logo=react&logoColor=black)](https://react.dev/)

@@ -1,1 +1,0 @@
-import{j as t}from"./vendor-react-DNVpk_eW.js";import o from"./PocketGeekCaseStudy-DVM6oNXV.js";import"./casestudy-DcfTasCW.js";import"./ResponsiveHeroMedia-CdTb5pDm.js";function i(){return t.jsx(o,{})}export{i as default};

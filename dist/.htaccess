@@ -1,9 +1,0 @@
-Options -MultiViews
-RewriteEngine On
-
-# Serve static files (PDF, images, fonts, etc.) directly — skip SPA routing
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^ - [L]
-
-# SPA fallback: route everything else to index.html
-RewriteRule ^ /index.html [L]

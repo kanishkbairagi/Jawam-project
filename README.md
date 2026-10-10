@@ -32,6 +32,47 @@
 
 ---
 
+## 🧩 Component-Based Architecture & Modular Design
+
+The application adheres to **Domain-Driven Component Decomposition** and **Separation of Concerns**, organizing 46 distinct routes into isolated, high-cohesion, low-coupling modules.
+
+### Component Hierarchy & File Structure
+```
+src/
+├── common components/           # Reusable Cross-Cutting UI Components
+│   ├── Navbar.jsx               # Global Navigation & Dynamic Route Anchoring
+│   ├── Footer.jsx               # Universal Enterprise Footer
+│   ├── GlobalContact.jsx        # Centralized Contact & Lead Generation Pipeline
+│   ├── Preloader.jsx            # Suspense Loading Fallback
+│   ├── CookieConsent.jsx        # Compliance & Privacy Consent Layer
+│   └── ResponsiveHeroMedia.jsx  # Adaptive Viewport Video/Image Controller
+│
+├── pages/                       # Feature & Domain Modules (46 Isolated Routes)
+│   ├── Portfolio Page/          # Feature Module
+│   │   ├── components/          # Domain-Scoped Components (Isolated Scope)
+│   │   │   ├── PortfolioHero.jsx
+│   │   │   ├── PortfolioSection.jsx
+│   │   │   ├── JourneySection.jsx
+│   │   │   └── TrustedClients.jsx
+│   │   ├── Portfolio.jsx        # Page Composition Root
+│   │   └── portfolio.css        # Scoped Style Manifest
+│   ├── AI Solutions/            # AI Domain Module & Chat Streaming Interface
+│   ├── Case Study/              # Client Enterprise Case Studies
+│   ├── Our Services/            # Service Catalog & Capabilities
+│   └── ...                      # 40+ Additional Decoupled Domain Pages
+│
+├── config/                      # Global Constants, API Endpoints, & Routing Maps
+└── App.jsx                      # Root Composition, Suspense Boundaries, & Router
+```
+
+### Architectural Principles Applied:
+1. **Domain-Driven Modularization:** Each page functions as an autonomous micro-feature with its own sub-components directory. This avoids monolithic "god components" and makes individual pages easily maintainable and testable.
+2. **Encapsulated Component Scoping:** Shared UI components live strictly in `common components/`, while feature-specific widgets (e.g., `PortfolioHero`, `JourneySection`) remain strictly encapsulated within their respective domain folders.
+3. **Suspense Boundary Isolation:** Top-level route transitions are wrapped in granular `<Suspense fallback={<Preloader />}>` boundaries, ensuring persistent components (like `Navbar` and `Footer`) remain mounted without unnecessary DOM thrashing.
+4. **State Isolation & Minimal Re-renders:** Component state is scoped strictly to local sub-trees using custom React hooks, eliminating cascading re-renders across the 46 routes.
+
+---
+
 ## 📊 Quantified Performance Benchmarks (Lighthouse Audit)
 
 | Metric | Target | Production Benchmark | Status |

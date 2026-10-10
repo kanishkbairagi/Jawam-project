@@ -9,9 +9,8 @@
 
 ---
 
-## 🚀 Live Demo & Production Links
+## 🚀 Live Production Deployment
 - **Production URL:** [https://jawaminfotech.com](https://jawaminfotech.com)
-- **Interactive Case Study:** [View Technical Design Document](https://yourportfolio.com#jawam)
 
 ---
 

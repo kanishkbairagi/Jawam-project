@@ -23,6 +23,7 @@ const About = lazy(() => import('./pages/Our Technology/About'))
 const AboutPage = lazy(() => import('./pages/About Page/About'))
 const Industries = lazy(() => import('./pages/Industries Page/Industries'))
 const JMart24 = lazy(() => import('./pages/JMart24 Page/Jmart'))
+const SchoolPage = lazy(() => import('./pages/School Page/School'))
 const AiSolutions = lazy(() => import('./pages/AI Solutions/AiSolutions'))
 const OpenRoles = lazy(() => import('./pages/careers/component/OpenRoles'))
 const WhyJoinUs2 = lazy(() => import('./pages/Why Join page/WhyJoinUs2'))
@@ -133,6 +134,9 @@ function App() {
         <Route path="/automotive" element={<Industries />} />
         <Route path="/insurance" element={<Industries />} />
         <Route path="/jmart24" element={<JMart24 />} />
+        <Route path="/schoolhealth" element={<SchoolPage />} />
+        <Route path="/school-health" element={<SchoolPage />} />
+        <Route path="/school" element={<SchoolPage />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/vision" element={<Services />} />
         <Route path="/services/vision2" element={<Services />} />

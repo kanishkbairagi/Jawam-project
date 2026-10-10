@@ -1,0 +1,113 @@
+/* =====================================================
+   school.css - SchoolHealth Page Styles & Animations
+   ===================================================== */
+#school-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 460px at 10% 12%, rgba(56, 189, 248, 0.16), transparent 70%),
+    radial-gradient(circle 500px at 90% 25%, rgba(14, 165, 233, 0.14), transparent 70%),
+    radial-gradient(circle 460px at 15% 75%, rgba(56, 189, 248, 0.12), transparent 70%),
+    radial-gradient(circle 520px at 85% 85%, rgba(37, 99, 235, 0.12), transparent 70%);
+}
+
+@keyframes shFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shBadgeFade {
+  from { opacity: 0; transform: translateY(-10px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes shSlideRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shCheckPop {
+  0% { opacity: 0; transform: translateX(-15px) scale(0.6); }
+  70% { opacity: 1; transform: translateX(2px) scale(1.1); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes shFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.sh-badge {
+  opacity: 0;
+  animation: shBadgeFade 0.6s ease-out forwards;
+}
+
+.sh-animate {
+  opacity: 0;
+  animation: shFadeUp 0.7s ease-out forwards;
+}
+
+.sh-delay-1 { animation-delay: 0.1s; }
+.sh-delay-2 { animation-delay: 0.25s; }
+.sh-delay-3 { animation-delay: 0.4s; }
+
+.sh-btn-primary, .sh-btn-secondary {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sh-btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.45);
+}
+
+.sh-btn-secondary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+.sh-feature-item {
+  opacity: 0;
+  animation: shCheckPop 0.5s ease-out forwards;
+}
+
+.sh-feature-item:nth-child(1) { animation-delay: 0.55s; }
+.sh-feature-item:nth-child(2) { animation-delay: 0.65s; }
+.sh-feature-item:nth-child(3) { animation-delay: 0.75s; }
+
+.sh-feature-badge {
+  transition: transform 0.3s ease;
+}
+
+.sh-feature-item:hover .sh-feature-badge {
+  transform: scale(1.2) rotate(8deg);
+}
+
+.sh-img-wrap {
+  opacity: 0;
+  animation: shSlideRight 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.sh-img-float {
+  animation: shFloat 4.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Feature cards in Why Choose section */
+.sh-card-outer {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.sh-card-outer:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px -10px rgba(4, 163, 218, 0.3);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(37, 99, 235, 0.2));
+}

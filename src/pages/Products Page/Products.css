@@ -175,6 +175,8 @@
     font-size: 24px !important;
     line-height: 30px !important;
   }
+  #jawam-products-section img.product-brand-logo,
+  #jawam-products-section img[alt$="logo"],
   #jawam-products-section img[alt="JMart 24 logo"] {
     width: 160px !important;
     height: auto !important;
@@ -353,6 +355,8 @@
   #jawam-products-section h2 {
     font-size: 30px !important;
   }
+  #jawam-products-section img.product-brand-logo,
+  #jawam-products-section img[alt$="logo"],
   #jawam-products-section img[alt="JMart 24 logo"] {
     width: 200px !important;
     height: auto !important;

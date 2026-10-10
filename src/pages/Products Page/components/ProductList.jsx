@@ -1,75 +1,105 @@
 import { Link } from 'react-router-dom';
-import productImage from '../../../assets/product2.webp';
+import jmartLogoColor from '../../../assets/jmart-logo-color.png';
 import productLogo from '../../../assets/product3.png';
+import schoolHealthWhiteLogo from '../../../assets/schoolhealth-logo-white.png';
+import schoolHealthDarkLogo from '../../../assets/schoolhealth-logo-dark.png';
+
+const PRODUCTS = [
+  {
+    id: 'jmart24',
+    title: 'JMart 24',
+    description: 'Smart Inventory and billing management system for businesses of all sizes.',
+    image: jmartLogoColor,
+    imageAlt: 'JMart 24 preview',
+    imageClass: 'w-full max-w-[220px] md:max-w-[270px] h-[65px] md:h-[85px] object-contain transition-transform duration-300 group-hover:scale-105',
+    logo: productLogo,
+    logoAlt: 'JMart 24 logo',
+    link: '/jmart24',
+  },
+  {
+    id: 'schoolhealth',
+    title: 'SchoolHealth',
+    description: 'All-in-one ERP platform for schools, colleges, and coaching centres to manage students, attendance, fees, transport, exams, and more.',
+    image: schoolHealthDarkLogo,
+    imageAlt: 'SchoolHealth preview',
+    imageClass: 'w-full max-w-[220px] md:max-w-[270px] h-[65px] md:h-[85px] object-contain transition-transform duration-300 group-hover:scale-105',
+    logo: schoolHealthWhiteLogo,
+    logoAlt: 'SchoolHealth logo',
+    link: '/schoolhealth',
+  },
+];
 
 export default function ProductList() {
   return (
     <section
-      className="md:px-4 lg:px-4 px-4 lg:max-w-[1000px] md:max-w-[700px] mt-0 lg:mt-0 md:mt-[-30px] mx-auto mb-[40px] md:mb-[-45px] lg:mb-[-60px]"
+      className="md:px-4 lg:px-4 px-4 lg:max-w-[1050px] md:max-w-[720px] mt-0 lg:mt-0 md:mt-[-30px] mx-auto mb-[40px] md:mb-[-45px] lg:mb-[-60px]"
       id="jawam-products-section"
     >
-      <div className="mb-4 md:mb-6">
+      <div className="mb-6 md:mb-8">
         <h2 className="font-bold text-[24px] md:text-[36px] leading-[30px] md:leading-[40px] tracking-[-0.5px] md:text-left lg:text-left text-center">
           JAWAM <span className="text-[#04A3DA]">PRODUCTS</span>
         </h2>
       </div>
 
-      <div className="border border-[#FFFFFF80] rounded-3xl overflow-hidden mt-[-10px] md:mt-0 lg:mt-0">
-        <div className="flex flex-col md:flex-row items-stretch">
-          <div className="w-full md:w-1/2 bg-white flex flex-col items-center justify-center p-4 md:p-8">
-            <img
-              src={productImage}
-              alt="JMart 24 preview"
-              className="w-full max-w-[220px] md:max-w-[320px] h-auto object-contain"
-            />
-
-            <div className="flex items-center gap-1 md:gap-1.5 mt-3 md:mt-4">
-              <span className="w-2 h-2 rounded-full bg-slate-300"></span>
-              <span className="w-2 h-2 rounded-full bg-slate-300"></span>
-              <span className="w-6 h-2 rounded-full bg-sky-500"></span>
-              <span className="w-2 h-2 rounded-full bg-slate-300"></span>
-            </div>
-          </div>
-
-          <div className="w-full md:w-1/2 px-5 py-5 md:px-6 md:py-0 flex flex-col justify-center">
-            <div className="mb-4 md:mb-6 lg:mb-8">
+      {/* Both Products Displayed as Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {PRODUCTS.map((product) => (
+          <div
+            key={product.id}
+            className="border border-[#FFFFFF80] rounded-3xl overflow-hidden bg-[#0F172A] hover:border-[#04A3DA] transition-all duration-300 flex flex-col justify-between shadow-xl group hover:shadow-[0_12px_36px_rgba(4,163,218,0.2)] hover:-translate-y-1"
+          >
+            {/* Top White Preview Area */}
+            <div className="w-full bg-white flex items-center justify-center p-6 md:p-8 h-[190px] md:h-[220px]">
               <img
-                src={productLogo}
-                alt="JMart 24 logo"
-                className="w-[140px] h-[44px] md:w-[190px] md:h-[60px] lg:w-[255px] lg:h-[80px] mt-0 md:mt-0 lg:mt-[-20px] object-contain"
-                style={{ opacity: 1, transform: "rotate(0deg)" }}
+                src={product.image}
+                alt={product.imageAlt}
+                className={product.imageClass}
               />
             </div>
 
-            <h4 className="font-semibold text-[17px] md:text-[17px] lg:text-[20px] leading-[21px] md:leading-[21px] lg:leading-[24px] tracking-[0px] mb-2 md:mb-3 lg:mb-4">
-              JMart 24
-            </h4>
-            <p className="font-normal text-[13px] md:text-[13px] lg:text-[16px] leading-[18px] tracking-[0px] mb-4 md:mb-4 lg:mb-6">
-              Smart Inventory and billing management system for businesses
-              of all sizes.
-            </p>
+            {/* Bottom Dark Info Area */}
+            <div className="p-6 md:p-7 lg:p-8 flex flex-col justify-between flex-1">
+              <div>
+                <div className="mb-3 md:mb-4 h-[44px] md:h-[50px] flex items-center">
+                  <img
+                    src={product.logo}
+                    alt={product.logoAlt}
+                    className="product-brand-logo w-[130px] md:w-[160px] h-[38px] md:h-[46px] object-contain object-left"
+                    style={{ opacity: 1, transform: 'rotate(0deg)' }}
+                  />
+                </div>
 
-            <Link
-              to="/jmart24"
-              className="inline-flex items-center justify-center gap-1.5 md:gap-1.5 lg:gap-2 w-fit text-white text-xs md:text-xs lg:text-sm font-semibold px-4 py-2 md:px-4 md:py-2 lg:px-5 lg:py-2.5 rounded-full bg-[#EBF3FE80] border border-[#FFFFFF80] hover:bg-white/20 transition-all"
-            >
-              Explore Product
-              <svg
-                className="w-3.5 h-3.5 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                viewBox="0 0 24 24"
+                <h4 className="font-semibold text-[18px] md:text-[20px] lg:text-[22px] leading-[24px] text-white mb-2">
+                  {product.title}
+                </h4>
+
+                <p className="font-normal text-[13px] md:text-[14px] leading-[20px] text-slate-300 mb-6 min-h-[40px]">
+                  {product.description}
+                </p>
+              </div>
+
+              <Link
+                to={product.link}
+                className="inline-flex items-center justify-center gap-1.5 md:gap-2 w-fit text-white text-xs md:text-sm font-semibold px-4 py-2 md:px-5 md:py-2.5 rounded-full bg-[#EBF3FE80] border border-[#FFFFFF80] hover:bg-white/20 transition-all mt-auto"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </Link>
+                Explore Product
+                <svg
+                  className="w-3.5 h-3.5 md:w-4 md:h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </Link>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

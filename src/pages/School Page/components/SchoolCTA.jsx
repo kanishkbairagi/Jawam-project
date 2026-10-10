@@ -1,0 +1,46 @@
+import { Link } from 'react-router-dom';
+import { Icon } from '@iconify/react';
+
+export default function SchoolCTA() {
+  return (
+    <section id="final-cta-section" className="px-4 mb-0 md:mb-0 lg:mb-20">
+      <div className="max-w-[1150px] mx-auto">
+        <div className="bg-[linear-gradient(357.37deg,_rgba(177,226,244,0.2)_1.93%,_rgba(230,246,251,0.2)_97.52%)] border border-white/10 rounded-2xl px-4 md:px-6 lg:px-10 py-6 md:py-10 lg:py-12 text-center">
+          <h2 className="font-semibold text-[28px] md:text-[42px] lg:text-[56px] leading-[32px] md:leading-[48px] lg:leading-[64px] tracking-[-0.5px] text-white text-center mb-4 md:mb-6">
+            Ready to Simplify Your{' '}
+            <span className="text-sky-400">School Operations?</span>
+          </h2>
+          <p className="mb-4 md:mb-6 mx-auto max-w-[850px] text-[#E7E8EA] font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[16px] md:leading-[18px] lg:leading-[20px] tracking-[-0.5px] text-center">
+            Get started with SchoolHealth and manage your school digitally from one platform.
+          </p>
+          <div className="flex flex-row items-center justify-center gap-2 sm:gap-3 mt-4 md:mt-6">
+            <a
+              href="https://schoolhealth.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-white text-[11px] sm:text-xs md:text-sm font-semibold px-3 sm:px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] shadow-[0_4px_20px_rgba(14,165,233,0.3)] hover:opacity-95 transition-all whitespace-nowrap"
+            >
+              <Icon
+                icon="solar:arrow-right-linear"
+                style={{ color: '#FFFFFF', fontSize: '14px' }}
+                className="text-sm sm:text-lg shrink-0"
+              />
+              Digitize Your School Today
+            </a>
+            <Link
+              to="/schedule-consultation"
+              className="inline-flex items-center gap-2 text-[#0F172A] text-[11px] sm:text-xs md:text-sm font-semibold px-3 sm:px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-white hover:bg-slate-100 transition-all shadow-lg whitespace-nowrap"
+            >
+              <Icon
+                icon="solar:play-circle-bold"
+                style={{ color: '#000000', fontSize: '14px' }}
+                className="text-sm sm:text-lg shrink-0"
+              />
+              Book Demo
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

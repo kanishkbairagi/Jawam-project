@@ -1,3 +1,4 @@
+import jmartLogo from '../../../assets/product3.png';
 import jmartImg from '../../../assets/jmart1.webp';
 import { Icon } from "@iconify/react";
 import '../jmart.css';
@@ -12,12 +13,13 @@ export default function JmartHero() {
 
           {/* Badge + Heading + Paragraph */}
           <div className="order-1 lg:order-none lg:col-start-1 lg:row-start-1 text-center lg:text-left">
-            {/* Badge */}
-            <div className="jh-badge inline-flex items-center gap-1.5 md:gap-2 bg-white rounded-full px-3 md:px-4 py-1.5 md:py-2 mb-3 md:mb-2 shadow-sm">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-3.5 h-3.5 md:w-5 md:h-5 lg:w-6 lg:h-6 text-[#3B82F6]">
-              <path d="M2.25 3a.75.75 0 000 1.5h1.386l2.56 10.24A2.25 2.25 0 008.379 16.5h8.976a2.25 2.25 0 002.18-1.694l1.2-4.8A.75.75 0 0019.008 9H6.53l-.57-2.25H20.25a.75.75 0 000-1.5H5.58l-.3-1.2A1.5 1.5 0 003.826 3H2.25zM9 20.25a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm9 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
-            </svg>
-              <span className="text-slate-800 text-xs md:text-sm font-semibold">JMart 24</span>
+            {/* Logo */}
+            <div className="jh-badge inline-flex items-center mb-3 md:mb-4">
+              <img
+                src={jmartLogo}
+                alt="JMart 24"
+                className="h-7 md:h-8 lg:h-9 w-auto object-contain"
+              />
             </div>
 
             <h1 className="jh-animate jh-delay-1 font-extrabold md:max-w-[600px] md:mt-2 mt-0 lg:mt-0 md:mx-auto text-[20px] md:text-[46px] lg:text-[64px] leading-[28px] md:leading-[52px] lg:leading-[70px] lg:text-left md:text-center text-left tracking-[-0.5px] mb-4 md:mb-6">
